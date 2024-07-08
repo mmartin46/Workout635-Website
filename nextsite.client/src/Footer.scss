@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+$primaryColor: rgb(30,30,30);
+$iconSize: 30px;
+
+.footer {
+    position: fixed;
+    width: 100%;
+    background-color: $primaryColor;
+    padding: 20px;
+    bottom: 0;
+}
+
+.footer img {
+    width: $iconSize;
+    height: $iconSize;
+    transition-duration: 0.3s;
+}
+
+.footer img:hover {
+    transform: translateY(-5px);
+}
+
+.footer {
+
+    ul li {
+        font-family: "Oswald", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        color: white;
+        list-style-type: none;
+    }
+
+    p {
+        font-family: "Oswald", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        color: white;
+        list-style-type: none;
+    }
+}
