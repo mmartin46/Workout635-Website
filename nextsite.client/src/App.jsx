@@ -22,9 +22,9 @@ const MainLayout = () => {
                     <h3>Bootcamps</h3>
                     <h6>Starting at $30.00</h6>
                 </div>
-                <div className="col icon tint">
-                    <h3>Weights</h3>
-                    <h6>Starting at $10.00</h6>
+                <div className="col icon tint" style={{ background: "url('/public/smith.jpg')" }}>
+                    <h3>Smith Machines</h3>
+                    <h6>Starting at $300.00</h6>
                 </div>
             </div>
 

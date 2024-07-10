@@ -10,16 +10,21 @@
 }
 
 .icon {
+
     font-family: "Oswald", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-
     display: block;
     justify-content: center;
     align-content: center;
     align-items: center;
     text-align: center;
     color: white;
+}
+
+#choices {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 @media (max-width: 400px)
@@ -34,4 +39,9 @@
 .tint {
     background-color: rgba(0,0,0,.5);
     background-blend-mode: multiply;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
