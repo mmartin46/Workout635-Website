@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+.icon {
+    margin: 30px;
+    min-width: 250px;
+    max-width: 300px;
+    aspect-ratio: 4 / 3;
+    background: url('/public/metal_0.png');
+    background-size: cover;   
+}
+
+.icon {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    display: block;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+@media (max-width: 400px)
+{
+    #choices {
+        display: block;
+        flex-direction: row;
+        align-content: center;
+    }
+}
+
+.tint {
+    background-color: rgba(0,0,0,.5);
+    background-blend-mode: multiply;
+}

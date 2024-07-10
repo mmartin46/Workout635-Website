@@ -10,6 +10,18 @@ $iconSize: 30px;
     bottom: 0;
 }
 
+@media (max-width: 500px)
+{
+    .footer {
+        ul {
+            li {
+                display: block;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
 .footer img {
     width: $iconSize;
     height: $iconSize;
