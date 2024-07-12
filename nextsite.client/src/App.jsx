@@ -5,9 +5,9 @@ import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import PageCarousel from './components/general/PageCarousel';
 import Footer from './components/general/Footer';
-import './Session.scss'
-import './Icon.scss';
+
 import Header from './components/general/Header';
+import Highlights from './components/general/Highlight';
 
 class Topic {
     constructor(caption, smallerCaption, src) {
@@ -17,6 +17,13 @@ class Topic {
     }
 }
 
+class Highlight {
+    constructor(url, title, caption) {
+        this.url = url;
+        this.title = title;
+        this.caption = caption;
+    }
+}
 
 const MainLayout = () => {
     const topics = [
@@ -24,25 +31,17 @@ const MainLayout = () => {
         new Topic("Starts With You", "$14.99 a month", "/mi.png")
     ];
 
+    const highlights = [
+        new Highlight("url('/public/metal_0.png')", "Personal Training", "Starting at $90.00"),
+        new Highlight("url('/public/yoga.jpg')", "Yoga Classes", "Starting at $30.00"),
+        new Highlight("url('/public/smith.jpg')", "Bootcamps","Starting at $40.00")
+    ];
+
 
     return (
         <>
             <PageCarousel topics={topics} />
-            <div id="choices" className="row justify-content-center align-items-center">
-                <div className="col icon tint" style={{ background: "url('/public/metal_0.png')"}}>
-                    <h3>Personal Training</h3>
-                    <h6>Starting at $90.00</h6>
-                </div>
-                <div className="col icon tint" style={{ background: "url('/public/yoga.jpg')" }}>
-                    <h3>Yoga Classes</h3>
-                    <h6>Starting at $30.00</h6>
-                </div>
-                <div className="col icon tint" style={{ background: "url('/public/smith.jpg')" }}>
-                    <h3>Bootcamps</h3>
-                    <h6>Starting at $40.00</h6>
-                </div>
-            </div>
-
+            <Highlights highlights={highlights} />
             <div className="next-section" style={{ }}>
                 <div>
                     <div className="row">
