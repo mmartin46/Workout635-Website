@@ -5,34 +5,25 @@ import './PageCarousel.scss'
 
 
 
-const PageCarousel = () => {
+const PageCarousel = ({ topics }) => {
     return (
         <div className="carousel">
             <Carousel>
-                <Carousel.Item interval={20000000}>
-                    <img
-                        className="d-block w-100 carousel-img"
-                        src="/mi.png"
-                    />
-                    <Carousel.Caption>
-                        <div className="gym-cap">
-                            <h2 className="display-3">Starts With You</h2>
-                            <h6 className="display-6">$14.99 a month</h6>
-                        </div>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={20000000}>
-                    <img
-                        className="d-block w-100 carousel-img"
-                        src="/mi.png"
-                    />
-                    <Carousel.Caption>
-                        <div className="gym-cap">
-                            <h2 className="display-3">Starts With You</h2>
-                            <h4 className="display-6">$14.99 a month</h4>
-                        </div>
-                    </Carousel.Caption>
-                </Carousel.Item>
+                
+                {topics.map((topic, index) => (
+                    <Carousel.Item interval={20000000} key={index}>
+                        <img
+                            className="d-block w-100 carousel-img"
+                            src={topic.src}
+                        />
+                        <Carousel.Caption>
+                            <div className="gym-cap">
+                                <h2 className="display-3">{topic.caption}</h2>
+                                <h6 className="display-6">{topic.smallerCaption}</h6>
+                            </div>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                ))}
             </Carousel>
         </div>
     )

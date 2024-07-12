@@ -1,12 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NextSite.Server.Services;
 
 namespace NextSite.Server.Controllers
 {
     public class TrainerController : Controller
     {
-        public IActionResult Index()
+        private readonly ITrainerService? _trainerService = null;
+
+        public TrainerController(ITrainerService trainerService)
         {
-            return View();
+            _trainerService = trainerService;
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> GetTrainers()
+        {
+            var trainers = await _trainerService.GetAsync();
+            return Json(trainers);
         }
     }
 }

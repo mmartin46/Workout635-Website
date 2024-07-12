@@ -20,6 +20,12 @@
     filter: brightness(0.8);
 }
 
+.icon > * {
+    filter: brightness(1.0);
+    font-weight: 300;
+}
+
+
 .icon {
 
     font-family: "Oswald", sans-serif;

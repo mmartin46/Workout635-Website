@@ -27,7 +27,7 @@ const MainLayout = () => {
 
     return (
         <>
-            <PageCarousel />
+            <PageCarousel topics={topics} />
             <div id="choices" className="row justify-content-center align-items-center">
                 <div className="col icon tint" style={{ background: "url('/public/metal_0.png')"}}>
                     <h3>Personal Training</h3>
