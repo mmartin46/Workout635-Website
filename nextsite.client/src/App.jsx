@@ -30,7 +30,7 @@ const MainLayout = () => {
             <PageCarousel />
             <div id="choices" className="row justify-content-center align-items-center">
                 <div className="col icon tint" style={{ background: "url('/public/metal_0.png')"}}>
-                    <h3>Physical Trainers</h3>
+                    <h3>Personal Training</h3>
                     <h6>Starting at $90.00</h6>
                 </div>
                 <div className="col icon tint" style={{ background: "url('/public/yoga.jpg')" }}>
@@ -55,8 +55,9 @@ const MainLayout = () => {
                         <div className="col">
                             <ul>
                                 <li><h4>Three day free guest pass</h4></li>
-                                <li><h4>Memberships Cancelled anytime.</h4></li>
                                 <li><h4>Memberships Start At $14.99</h4></li>
+                                <li><h4>Membership Cancellation Anytime</h4></li>
+                                <li><h4>No Hidden Fees</h4></li>
                             </ul>
                         </div>
                     </div>

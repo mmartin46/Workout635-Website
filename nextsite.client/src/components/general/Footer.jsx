@@ -7,9 +7,10 @@ const Footer = () => {
                 <div className="col">
                     <ul>
                         <li><h4>Products</h4></li>
-                        <li>Weights</li>
-                        <li>Boot-Camps</li>
-                        <li>Workout Routines</li>
+                        <li>Memberships</li>
+                        <li>Personal Training</li>
+                        <li>Yoga Classes</li>
+                        <li>Bootcamps</li>
                     </ul>
                 </div>
                 <div className="col">
@@ -24,7 +25,7 @@ const Footer = () => {
                     <ul>
                         <li><h4>Contact Us</h4></li>
                         <li>Contact</li>
-                        <li>(Fake)</li>
+                        <li>Careers</li>
                         <li>(Fake)</li>
                     </ul>
                 </div>
