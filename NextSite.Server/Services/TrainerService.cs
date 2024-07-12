@@ -10,9 +10,9 @@ namespace NextSite.Server.Services
         private readonly IMongoCollection<TrainerModel> _trainerCollection;
         public TrainerService()
         {
-            var mongoClient = new MongoClient("mongodb+srv://mitchellbmartin00:Isaiah4031");
-            var mongoDatabase = mongoClient.GetDatabase("weight_website");
-            _trainerCollection = mongoDatabase.GetCollection<TrainerModel>("personal_trainers");
+            var mongoClient = new MongoClient(Constants.ConnectionString);
+            var mongoDatabase = mongoClient.GetDatabase(Constants.DatabaseName);
+            _trainerCollection = mongoDatabase.GetCollection<TrainerModel>(Constants.CollectionName);
         }
 
         public async Task<List<TrainerModel>> GetAsync() =>
