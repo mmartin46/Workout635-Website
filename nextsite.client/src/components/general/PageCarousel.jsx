@@ -3,6 +3,8 @@ import LinkButton from '../buttons/LinkButton.jsx';
 import './PageCarousel.scss'
 
 
+
+
 const PageCarousel = () => {
     return (
         <div className="carousel">
@@ -15,7 +17,7 @@ const PageCarousel = () => {
                     <Carousel.Caption>
                         <div className="gym-cap">
                             <h2 className="display-3">Starts With You</h2>
-                            <h4 className="display-6">$14.99 a month</h4>
+                            <h6 className="display-6">$14.99 a month</h6>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>

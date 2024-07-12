@@ -7,6 +7,17 @@
     aspect-ratio: 4 / 3;
     background: url('/public/metal_0.png');
     background-size: cover;   
+    filter: grayscale(1.0);
+}
+
+
+.icon:hover {
+    filter: brightness(1.0);
+}
+
+.icon {
+    transition-duration: 0.3s;
+    filter: brightness(0.8);
 }
 
 .icon {
@@ -35,6 +46,8 @@
         align-content: center;
     }
 }
+
+
 
 #choices > * {
     display: block;

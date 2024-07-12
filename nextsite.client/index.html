@@ -14,7 +14,55 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <script>
+        function fadeDown(id) {
 
+            $(id).css({
+                opacity: 0.0,
+                position: "relative"
+            });
+
+            $(id).animate({
+                top: '-=50px'
+            }, 0);
+
+            $(id).animate({
+                opacity: 1,
+                top: '+=50px'
+            }, 1000);
+        }
+        
+        function fadeUp(id) {
+
+            $(id).css({
+                opacity: 0.0,
+                position: "relative"
+            });
+
+            $(id).animate({
+                top: '+=50px'
+            }, 0);
+
+            $(id).animate({
+                opacity: 1,
+                top: '-=50px'
+            }, 1000);
+        }    
+
+            $(document).ready(function () {
+                $(".horizontal-ul .nav-bar li").css("opacity", 0);
+                $("#social-media").css("opacity", 0);
+                $(".footer p").css("opacity", 0);
+                setTimeout(() => {
+                    fadeDown(".horizontal-ul .nav-bar li");
+                }, 200);
+
+                setTimeout(() => {
+                    fadeUp(".footer p")
+                    fadeUp("#social-media");
+                }, 200);
+
+                fadeUp("#footer-contents");
+        });
     </script>
   </body>
 </html>

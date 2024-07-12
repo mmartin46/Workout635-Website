@@ -3,7 +3,7 @@ import './Footer.scss';
 const Footer = () => {
     return (
         <div className="footer">
-            <div className="row">
+            <div id="footer-contents" className="row">
                 <div className="col">
                     <ul>
                         <li><h4>Products</h4></li>
@@ -29,7 +29,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="horizontal-ul">
+            <div id="social-media" className="horizontal-ul">
                 <ul>
                     <li><a><img src="/facebook.png" /></a></li>
                     <li><a><img src="/twitter.png" /></a></li>
