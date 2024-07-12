@@ -5,6 +5,7 @@ import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import PageCarousel from './components/general/PageCarousel';
 import Footer from './components/general/Footer';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Header from './components/general/Header';
 import Highlights from './components/general/Highlight';
@@ -23,6 +24,43 @@ class Highlight {
         this.title = title;
         this.caption = caption;
     }
+}
+
+const ScreenRoutes = () => {
+    return (
+        <Routes>
+            <Route path="/" element={<MainLayout />} />
+            <Route path="/training" element={<PersonalTrainingLayout/> }/>
+        </Routes>
+    );
+}
+
+const PersonalTrainingLayout = () => {
+    const [trainers, setTrainers] = useState({});
+
+    useEffect(() => {
+        const getTrainers = () => {
+            fetch("https://localhost:5198/Trainers")
+                .then(res => res.json())
+                .then(
+                    (result) => {
+                        this.setTrainers(result);
+                    },
+                    (error) => {
+                         console.log('Problem getting trainers')
+                    }
+                );
+        };
+
+        getTrainers();
+    }, [trainers]);
+
+
+    return (
+        <div>
+            <h2 style={{ color: 'black'} }>Hello World</h2>
+        </div>
+    )
 }
 
 const MainLayout = () => {
@@ -69,11 +107,11 @@ const MainLayout = () => {
 
 function App() {
     return (
-        <>
+        <BrowserRouter>
             <Header/>
-            <MainLayout />
+            <ScreenRoutes />
             <Footer/>
-        </>
+        </BrowserRouter>
     );
 }
 

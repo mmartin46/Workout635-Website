@@ -1,4 +1,5 @@
 import './Footer.scss';
+import PlainLink from '../buttons/PlainLink';
 
 const Footer = () => {
     return (
@@ -8,7 +9,10 @@ const Footer = () => {
                     <ul>
                         <li><h4>Products</h4></li>
                         <li>Memberships</li>
-                        <li>Personal Training</li>
+                        <li><PlainLink
+                            to="/training"
+                            fontColor="white">
+                            Personal Training</PlainLink></li>
                         <li>Yoga Classes</li>
                         <li>Bootcamps</li>
                     </ul>

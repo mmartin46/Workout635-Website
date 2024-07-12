@@ -13,6 +13,7 @@ namespace NextSite.Server.Controllers
         }
 
         [HttpGet]
+        [Route("/Trainers")]
         public async Task<JsonResult> GetTrainers()
         {
             var trainers = await _trainerService.GetAsync();
