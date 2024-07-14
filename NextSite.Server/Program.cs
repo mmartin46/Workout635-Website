@@ -13,6 +13,17 @@ builder.Services.AddControllers();
 
 builder.Services.AddSingleton<ITrainerService, TrainerService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+    policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 app.UseDefaultFiles();
@@ -31,8 +42,17 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Urls.Add("http://localhost:3000");
+app.UseCors(builder => builder
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowAnyOrigin()
+);
 
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 app.MapFallbackToFile("/index.html");
 
 app.Run();

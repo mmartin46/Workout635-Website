@@ -4,9 +4,7 @@ namespace NextSite.Server.Models
 {
     public class TrainerModel
     {
-        [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public int Id { get; set; }
+        public Int32 Id { get; set; }
         
         [BsonElement("firstName")]
         public string FirstName { get; set; }

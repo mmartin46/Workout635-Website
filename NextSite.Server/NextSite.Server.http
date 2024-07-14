@@ -1,6 +1,5 @@
 @NextSite.Server_HostAddress = http://localhost:5198
 
-GET {{NextSite.Server_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

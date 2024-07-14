@@ -36,20 +36,22 @@ const ScreenRoutes = () => {
 }
 
 const PersonalTrainingLayout = () => {
-    const [trainers, setTrainers] = useState({});
+    const [trainers, setTrainers] = useState([]);
 
     useEffect(() => {
         const getTrainers = () => {
-            fetch("https://localhost:5198/Trainers")
-                .then(res => res.json())
-                .then(
-                    (result) => {
-                        this.setTrainers(result);
-                    },
-                    (error) => {
-                         console.log('Problem getting trainers')
-                    }
-                );
+
+            $.ajax({
+                url: "https://localhost:44314/Trainers",
+                type: 'GET',
+                crossDomain: true,
+                dataType: 'json',
+
+                success: function (res) {
+                    setTrainers(res);
+                    console.log(trainers);
+                }
+            });
         };
 
         getTrainers();
@@ -58,7 +60,17 @@ const PersonalTrainingLayout = () => {
 
     return (
         <div>
-            <h2 style={{ color: 'black'} }>Hello World</h2>
+            <h2 style={{ color: 'black' }}>Hello World</h2>
+            <div className="row"> 
+                {trainers.map((index, trainer) => (
+                    <div className="col" key={index}>
+                        <h1>{trainer.firstName} {trainer.lastName}</h1>
+                        <img src={trainer.headshot} />
+                        <h6>{trainer.phoneNumber}</h6>
+                        <h6>{trainer.email}</h6>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

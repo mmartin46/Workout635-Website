@@ -6,8 +6,8 @@ namespace NextSite.Server.Services
     {
         Task CreateAsync(TrainerModel trainer);
         Task<List<TrainerModel>> GetAsync();
-        Task<TrainerModel?> GetAsync(int id);
-        Task RemoveAsync(int id);
-        Task UpdateAsync(int id, TrainerModel updatedTrainer);
+        Task<TrainerModel?> GetAsync(Int32 id);
+        Task RemoveAsync(Int32 id);
+        Task UpdateAsync(Int32 id, TrainerModel updatedTrainer);
     }
 }
