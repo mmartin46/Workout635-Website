@@ -8,7 +8,11 @@ const Footer = () => {
                 <div className="col">
                     <ul>
                         <li><h4>Products</h4></li>
-                        <li>Memberships</li>
+                        <li>
+                            <PlainLink to="/memberships" fontColor="white">
+                                Memberships
+                            </PlainLink>
+                        </li>
                         <li><PlainLink
                             to="/training"
                             fontColor="white">
