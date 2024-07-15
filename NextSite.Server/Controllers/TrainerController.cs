@@ -5,9 +5,9 @@ namespace NextSite.Server.Controllers
 {
     public class TrainerController : Controller
     {
-        private readonly ITrainerService? _trainerService = null;
+        private readonly IService<TrainerService>? _trainerService = null;
 
-        public TrainerController(ITrainerService trainerService)
+        public TrainerController(IService<TrainerService> trainerService)
         {
             _trainerService = trainerService;
         }

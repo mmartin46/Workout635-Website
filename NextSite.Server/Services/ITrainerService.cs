@@ -2,12 +2,12 @@
 
 namespace NextSite.Server.Services
 {
-    public interface ITrainerService
+    public interface IService<T>
     {
-        Task CreateAsync(TrainerModel trainer);
-        Task<List<TrainerModel>> GetAsync();
-        Task<TrainerModel?> GetAsync(Int32 id);
+        Task CreateAsync(T trainer);
+        Task<List<T>> GetAsync();
+        Task<T?> GetAsync(Int32 id);
         Task RemoveAsync(Int32 id);
-        Task UpdateAsync(Int32 id, TrainerModel updatedTrainer);
+        Task UpdateAsync(Int32 id, T updatedModel);
     }
 }

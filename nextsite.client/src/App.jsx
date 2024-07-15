@@ -9,6 +9,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Header from './components/general/Header';
 import MainLayout from './components/layouts/MainLayout';
+import Topic from './components/general/Topic';
+import './MemberCard.scss';
+import PersonalTrainingLayout from './components/layouts/PersonalTrainingLayout';
 
 const ScreenRoutes = () => {
     return (
@@ -21,59 +24,47 @@ const ScreenRoutes = () => {
 }
 
 const MembershipLayout = () => {
-    return (
-        <div>
-        </div>
-    )
-}
-
-const PersonalTrainingLayout = () => {
-    const [trainers, setTrainers] = useState(null);
+    const [memberships, setMemberships] = useState(null);
 
     useEffect(() => {
-        const getTrainers = () => {
-
+        const getMemberTypes = () => {
             $.ajax({
-                url: "https://localhost:44314/Trainers",
+                url: "https://localhost:44314/Memberships",
                 type: 'GET',
                 crossDomain: true,
                 dataType: 'json',
-
                 success: function (res) {
-                    setTrainers(res);
-                    console.log('Trainers-> ', trainers);
+                    setMemberships(res);
+                    console.log('Memberships-> ', memberships);
                 }
             });
         };
 
-        getTrainers();
-    }, [trainers]);
+        getMemberTypes();
+    }, [memberships]);
 
 
     return (
-        <div className="card-container">
-            <div className="header">
-                <h1 className="text-center">Personal Trainers</h1>
-                <h6>He wore the surgical mask in public not to keep from catching a virus, but to keep people away from him.</h6>
-            </div>
-            <div className="fadeUp">
-                <div id="trainers" className="row">
-                    {trainers && trainers.map((trainer) => (
-                        <div className="mycard col" key={trainer.id}>
-                            <h3>{trainer.firstName} {trainer.lastName}</h3>
-                            <img src={trainer.headshot} />
-                            <h5 style={{ opacity: 0.7 }}>Personal Trainer</h5>
-                            <h6>{trainer.phoneNumber}</h6>
-                            <h6>{trainer.email}</h6>
-                        </div>
+        <div>
+            <Topic
+                title="Membership Information"
+                caption="They improved dramatically once the lead singer left." />
+                <div className="member-container row">
+                    {memberships &&
+                        memberships.map((membership) => (
+                            <div className="col member-card" key={membership.id}>
+                                <h3>{membership.type}</h3>
+                                <div>
+                                    <h6>Monthly Price: ${membership.price.toFixed(2)}</h6>
+                                    <h6>Joiners Fee: ${membership.joinerFee.toFixed(2)}</h6>
+                                    <h6>Allow Guest: {membership.allowGuest}</h6>
+                                </div>
+                             </div>
                     ))}
                 </div>
-            </div>
         </div>
-
     )
 }
-
 
 
 function App() {

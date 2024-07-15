@@ -5,7 +5,7 @@ using NextSite.Server.Models;
 
 namespace NextSite.Server.Services
 {
-    public class TrainerService : ITrainerService
+    public class TrainerService : IService<TrainerModel>
     {
         private readonly IMongoCollection<TrainerModel> _trainerCollection;
         public TrainerService()

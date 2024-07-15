@@ -1,3 +1,4 @@
+using NextSite.Server.Models;
 using NextSite.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +12,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
 
-builder.Services.AddSingleton<ITrainerService, TrainerService>();
+builder.Services.AddSingleton<IService<TrainerModel>, TrainerService>();
+builder.Services.AddSingleton<IService<MembershipModel>, MembershipService>();
+
 
 builder.Services.AddCors(options =>
 {
