@@ -20,6 +20,9 @@ const Footer = () => {
                 <div className="col">
                     <ul>
                         <li><h4>About Us</h4></li>
+                        <li><PlainLink
+                            to="/"
+                            fontColor="white">Home</PlainLink></li>
                         <li>Introduction</li>
                         <li>Location</li>
                         <li>Our Work</li>

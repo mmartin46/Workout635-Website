@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Header from './components/general/Header';
 import Highlights from './components/general/Highlight';
-
+import './Card.scss';
 class Topic {
     constructor(caption, smallerCaption, src) {
         this.caption = caption;
@@ -36,7 +36,7 @@ const ScreenRoutes = () => {
 }
 
 const PersonalTrainingLayout = () => {
-    const [trainers, setTrainers] = useState([]);
+    const [trainers, setTrainers] = useState(null);
 
     useEffect(() => {
         const getTrainers = () => {
@@ -49,7 +49,7 @@ const PersonalTrainingLayout = () => {
 
                 success: function (res) {
                     setTrainers(res);
-                    console.log(trainers);
+                    console.log('Trainers-> ', trainers);
                 }
             });
         };
@@ -59,19 +59,26 @@ const PersonalTrainingLayout = () => {
 
 
     return (
-        <div>
-            <h2 style={{ color: 'black' }}>Hello World</h2>
-            <div className="row"> 
-                {trainers.map((index, trainer) => (
-                    <div className="col" key={index}>
-                        <h1>{trainer.firstName} {trainer.lastName}</h1>
-                        <img src={trainer.headshot} />
-                        <h6>{trainer.phoneNumber}</h6>
-                        <h6>{trainer.email}</h6>
-                    </div>
-                ))}
+        <div className="card-container">
+            <div className="header">
+                <h1 className="text-center">Personal Trainers</h1>
+                <h6>He wore the surgical mask in public not to keep from catching a virus, but to keep people away from him.</h6>
+            </div>
+            <div className="fadeUp">
+                <div id="trainers" className="row">
+                    {trainers && trainers.map((trainer) => (
+                        <div className="mycard col" key={trainer.id}>
+                            <h3>{trainer.firstName} {trainer.lastName}</h3>
+                            <img src={trainer.headshot} />
+                            <h5 style={{ opacity: 0.7 }}>Personal Trainer</h5>
+                            <h6>{trainer.phoneNumber}</h6>
+                            <h6>{trainer.email}</h6>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
+
     )
 }
 

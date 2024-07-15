@@ -60,9 +60,15 @@
                     fadeUp(".footer p")
                     fadeUp("#social-media");
                 }, 200);
+                $(".fadeUp").css("opacity", 0)
+
 
                 fadeUp("#footer-contents");
-        });
+
+                setTimeout(() => {
+                    fadeUp(".fadeUp");
+                }, 1000);
+            });
     </script>
   </body>
 </html>
