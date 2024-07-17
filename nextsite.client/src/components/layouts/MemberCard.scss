@@ -7,12 +7,23 @@ body {
 }
 
 .click-more {
-    margin-top: 5px;
     text-align: center;
     background-color: rgba(0,0,0,1);
     padding-top: 10px;
     padding-bottom: 20px;
     color: white;
+    transition-duration: 0.3s;
+    opacity: 0.8;
+}
+
+.click-more:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.click-more:active {
+    opacity: 1;
+    transform: translateY(5px);
 }
 
 .member-card {
@@ -51,6 +62,7 @@ body {
 
     * {
         border-radius: 20px;
+        padding-bottom: 10px;
     }
 }
 

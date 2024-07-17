@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddSingleton<IService<TrainerModel>, TrainerService>();
 builder.Services.AddSingleton<IService<MembershipModel>, MembershipService>();
-
+builder.Services.AddSingleton<IBodyService, BodyService>();
 
 builder.Services.AddCors(options =>
 {
