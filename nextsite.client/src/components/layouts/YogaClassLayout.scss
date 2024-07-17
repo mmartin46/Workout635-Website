@@ -1,5 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+.main-padding {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+
+
+
+@media(max-width: 500px) {
+    .heading-part > * {
+        display: block;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+.heading-part {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: rgb(230,230,230);
+    padding-top: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+
+    .topic {
+        padding-top: 100px;
+    }
+
+    img {
+
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 300px;
+        max-height: 400px;
+    }
+
+    .col {
+        display: block;
+        justify-content: center;
+        align-content: center;
+    }
+}
 
 .serv-div {
     display: block;
@@ -9,7 +54,7 @@
     height: 500px;
     border-width: 2px;
     border-color: red;
-    padding: 30px;
+    padding: 60px;
     background-color: rgb(230,230,230);
 
     div {
@@ -26,7 +71,7 @@
         box-shadow: 0px 5px 5px rgba(0,0,0,0.3);
         margin-bottom: 15px;
     }
-    
+
     h5 {
         opacity: 0.6;
     }
