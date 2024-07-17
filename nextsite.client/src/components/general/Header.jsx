@@ -4,7 +4,12 @@ const Header = () => {
     return (
         <div className="horizontal-ul">
             <ul className="nav-bar">
-                <li><a>Products</a></li>
+                <li>
+                    <PlainLink
+                    to="/memberships"
+                    fontColor="white">Products
+                    </PlainLink>
+                </li>
                 <li>
                     <PlainLink
                     to="/"
