@@ -6,7 +6,17 @@ body {
     font-style: normal;
 }
 
+.click-more {
+    margin-top: 5px;
+    text-align: center;
+    background-color: rgba(0,0,0,1);
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: white;
+}
+
 .member-card {
+    border-radius: 20px;
     display: block;
     text-align: center;
     justify-content: center;
@@ -16,18 +26,31 @@ body {
     min-height: 500px;
     max-width: 300px;
     max-height: 500px;
-    margin: 50px;
-    box-shadow: 0px 10px 5px rgba(0,0,0,0.3);
+    margin: 10px;
+    box-shadow: 0px 20px 5px rgba(0,0,0,0.14);
 
     h3 {
         background-color: black;
         color: white;
         padding: 30px;
-        height: 130px;   
+        height: 130px;
     }
-    
-    div {
-        margin-top: 50px;
+
+    div :not(.click-more) {
+        margin-top: 20px;
+
+        div {
+            padding: 20px;
+            text-align: left;
+            height: 150px;
+            color: rgba(0,0,0,0.6);
+            background-color: rgba(0,0,0,0.1);
+
+        }
+    }
+
+    * {
+        border-radius: 20px;
     }
 }
 

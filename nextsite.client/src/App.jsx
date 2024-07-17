@@ -55,9 +55,15 @@ const MembershipLayout = () => {
                             <div className="col member-card" key={membership.id}>
                                 <h3>{membership.type}</h3>
                                 <div>
-                                    <h6>Monthly Price: ${membership.price.toFixed(2)}</h6>
-                                    <h6>Joiners Fee: ${membership.joinerFee.toFixed(2)}</h6>
-                                    <h6>Allow Guest: {membership.allowGuest}</h6>
+                                    <h5><b>${membership.price.toFixed(2)}</b> / per month</h5>
+                                    <div>
+                                        <h5>Plan Includes:</h5>
+                                        <h6>Joiners Fee: ${membership.joinerFee.toFixed(2)}</h6>
+                                        <h6>Allow Guest: {membership.allowGuest ? "Yes" : "No"}</h6>
+                                    </div>
+                                    <div className="click-more">
+                                        <h4>Contact Us</h4>
+                                    </div>
                                 </div>
                              </div>
                     ))}
