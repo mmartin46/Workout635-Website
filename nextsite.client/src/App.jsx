@@ -11,6 +11,7 @@ import Header from './components/general/Header';
 import MainLayout from './components/layouts/MainLayout';
 import PersonalTrainingLayout from './components/layouts/PersonalTrainingLayout';
 import MembershipLayout from './components/layouts/MembershipLayout';
+import Topic from './components/general/Topic';
 
 
 const ScreenRoutes = () => {
@@ -19,9 +20,39 @@ const ScreenRoutes = () => {
             <Route path="/" element={<MainLayout />} />
             <Route path="/training" element={<PersonalTrainingLayout />} />
             <Route path="/memberships" element={<MembershipLayout />} />
+            <Route path="/yoga" element={<YogaClassLayout/> } />
         </Routes>
     );
 }
+
+const YogaClassLayout = () => {
+    const [yogaClasses, setYogaClasses] = useState(null);
+
+    useEffect(() => {
+        const getData = () => {
+            $.ajax({
+                url: "https://localhost:44314/Yoga",
+                type: 'GET',
+                crossDomain: true,
+                dataType: 'json',
+                success: function (res) {
+                    setYogaClasses(res);
+                    console.log(yogaClasses);
+                }
+            });
+        };
+
+        getData();
+    }, [yogaClasses]);
+
+    return (
+        <div>
+            <Topic
+                title="Yoga Classes"
+                caption="The fence was confused about whether it was supposed to keep things in or keep things out."/>
+        </div>
+    )
+} 
 
 
 function App() {

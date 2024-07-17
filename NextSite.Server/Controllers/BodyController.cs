@@ -11,15 +11,18 @@ namespace NextSite.Server.Controllers
             _bodyService = bodyService;
         }
 
+        [HttpGet]
+        [Route("/Bootcamps")]
         public async Task<JsonResult> GetBootCamps()
         {
             var bootcamps = await _bodyService.GetByTypeAsync("bootcamp");
             return Json(bootcamps);
         }
-
-        public async Task<JsonResult> GetClasses()
+        [HttpGet]
+        [Route("/Yoga")]
+        public async Task<JsonResult> GetYogaCamps()
         {
-            var classes = await _bodyService.GetByTypeAsync("classes");
+            var classes = await _bodyService.GetByTypeAsync("class");
             return Json(classes);
         }
     }

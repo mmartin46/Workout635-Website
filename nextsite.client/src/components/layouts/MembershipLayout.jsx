@@ -15,7 +15,6 @@ const MembershipLayout = () => {
                 dataType: 'json',
                 success: function (res) {
                     setMemberships(res);
-                    console.log('Memberships-> ', memberships);
                 }
             });
         };

@@ -17,7 +17,10 @@ const Footer = () => {
                             to="/training"
                             fontColor="white">
                             Personal Training</PlainLink></li>
-                        <li>Yoga Classes</li>
+                        <li><PlainLink
+                            to="/yoga"
+                            fontColor="white">
+                            Yoga Classes</PlainLink></li>
                         <li>Bootcamps</li>
                     </ul>
                 </div>
