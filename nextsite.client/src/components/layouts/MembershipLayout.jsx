@@ -25,7 +25,7 @@ const MembershipLayout = () => {
 
 
     return (
-        <div>
+        <div className="main-padding">
             <Topic
                 title="Membership Information"
                 caption="They improved dramatically once the lead singer left." />

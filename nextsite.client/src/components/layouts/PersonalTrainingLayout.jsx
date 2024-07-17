@@ -37,7 +37,7 @@ const PersonalTrainingLayout = () => {
                 title="Personal Trainers"
                 caption="It would have been a better night if the guys next to us weren't in the splash zone."
             />
-            <div>
+            <div className="main-padding">
                 <div className="row">
                     {trainers && trainers.map((trainer) => (
                         <div className="col serv-div" key={trainer.id}>
