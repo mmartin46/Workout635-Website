@@ -25,11 +25,11 @@ const MembershipLayout = () => {
 
 
     return (
-        <div className="main-padding">
+        <div >
             <Topic
                 title="Membership Information"
                 caption="They improved dramatically once the lead singer left." />
-            <div className="member-container row">
+            <div className="main-padding member-container row" style={{ backgroundColor: "rgba(230,230,230,1)", padding: "30px" }}>
                 {memberships &&
                     memberships.map((membership) => (
                         <div className="col member-card" key={membership.id}>
