@@ -41,7 +41,13 @@ const Footer = () => {
                 <div className="col">
                     <ul>
                         <li><h4>Contact Us</h4></li>
-                        <li>Contact</li>
+                        <li>
+                            <PlainLink
+                                to="/contact"
+                                fontColor="white">
+                                Contact
+                            </PlainLink>
+                        </li>
                         <li>Careers</li>
                         <li>(Fake)</li>
                     </ul>

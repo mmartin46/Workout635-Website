@@ -14,6 +14,7 @@ import MembershipLayout from './components/layouts/MembershipLayout';
 import Topic from './components/general/Topic';
 import YogaClassLayout from './components/layouts/YogaClassLayout';
 import BootCampLayout from './components/layouts/BootcampLayout';
+import ContactLayout from './components/layouts/ContactLayout';
 
 const ScreenRoutes = () => {
     return (
@@ -22,7 +23,8 @@ const ScreenRoutes = () => {
             <Route path="/training" element={<PersonalTrainingLayout />} />
             <Route path="/memberships" element={<MembershipLayout />} />
             <Route path="/yoga" element={<YogaClassLayout />} />
-            <Route path="/bootcamp" element={<BootCampLayout/> }/>
+            <Route path="/bootcamp" element={<BootCampLayout />} />
+            <Route path="/contact" element={<ContactLayout/>} />
         </Routes>
     );
 }
