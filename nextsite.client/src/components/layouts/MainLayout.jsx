@@ -13,10 +13,11 @@ class Topic {
 }
 
 class Highlight {
-    constructor(url, title, caption) {
+    constructor(url, title, caption, redirect) {
         this.url = url;
         this.title = title;
         this.caption = caption;
+        this.redirect = redirect;
     }
 }
 
@@ -27,9 +28,9 @@ const MainLayout = () => {
     ];
 
     const highlights = [
-        new Highlight("url('/public/metal_0.png')", "Personal Training", "Starting at $90.00"),
-        new Highlight("url('/public/yoga.jpg')", "Yoga Classes", "Starting at $30.00"),
-        new Highlight("url('/public/smith.jpg')", "Bootcamps", "Starting at $40.00")
+        new Highlight("url('/public/metal_0.png')", "Personal Training", "Starting at $90.00", "/training"),
+        new Highlight("url('/public/yoga.jpg')", "Yoga Classes", "Starting at $30.00", "/yoga"),
+        new Highlight("url('/public/smith.jpg')", "Bootcamps", "Starting at $40.00", "/bootcamp")
     ];
 
 
