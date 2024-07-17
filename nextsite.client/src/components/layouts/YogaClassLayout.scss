@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 .main-padding {
-    margin-left: 100px;
-    margin-right: 100px;
+    padding-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
 }
 
 
@@ -22,7 +24,7 @@
     align-content: center;
     justify-content: center;
     background-color: rgb(230,230,230);
-    padding-top: 10px;
+    padding-top: 5%;
     padding-left: 10%;
     padding-right: 10%;
 
@@ -31,7 +33,6 @@
     }
 
     img {
-
         display: block;
         margin-left: auto;
         margin-right: auto;
