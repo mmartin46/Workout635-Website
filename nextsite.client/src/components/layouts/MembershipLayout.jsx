@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Topic from '../general/Topic';
 import './MemberCard.scss';
 
+
 const MembershipLayout = () => {
     const [memberships, setMemberships] = useState(null);
 

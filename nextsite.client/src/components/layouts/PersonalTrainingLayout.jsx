@@ -3,6 +3,7 @@ import Topic from '../general/Topic';
 import Highlights from '../general/Highlight';
 import './Card.scss';
 import '../general/Session.scss';
+import './YogaClassLayout.scss';
 
 
 
@@ -36,15 +37,17 @@ const PersonalTrainingLayout = () => {
                 title="Personal Trainers"
                 caption="It would have been a better night if the guys next to us weren't in the splash zone."
             />
-            <div className="fadeUp">
-                <div id="trainers" className="row">
+            <div>
+                <div className="row">
                     {trainers && trainers.map((trainer) => (
-                        <div className="mycard col" key={trainer.id}>
-                            <h3>{trainer.firstName} {trainer.lastName}</h3>
+                        <div className="col serv-div" key={trainer.id}>
                             <img src={trainer.headshot} />
-                            <h5 style={{ opacity: 0.7 }}>Personal Trainer</h5>
-                            <h6>{trainer.phoneNumber}</h6>
-                            <h6>{trainer.email}</h6>
+                            <div>
+                                <h2>{trainer.firstName} {trainer.lastName}</h2>
+                                <h5>Personal Trainer</h5>
+                                <h5>{trainer.phoneNumber}</h5>
+                                <h5>{trainer.email}</h5>
+                            </div>
                         </div>
                     ))}
                 </div>
