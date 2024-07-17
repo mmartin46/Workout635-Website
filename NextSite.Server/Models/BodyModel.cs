@@ -13,6 +13,9 @@ namespace NextSite.Server.Models
         public string Duration { get; set; } = "Unknown";
         [BsonElement("intensity")]
         public string? Intensity { get; set; }
+        [BsonElement("description")]
+        public string? Description { get; set; }
+
         [BsonElement("img")]
         public string? Image {  get; set; }
     }
