@@ -17,6 +17,8 @@
        
     }
 
+
+
     input {
         border-width: 0px;
         background-color: rgba(0,0,0,0.1);
@@ -28,6 +30,24 @@
         margin-top: 20px;
         background-color: black;
         color: white;
+    }
+}
+
+@media (max-width : 500px) {
+    .short-input {
+        min-width: 330px;
+    }
+
+    .contact-form > *, h4 {
+        display: block;
+        text-align: center;
+        padding: 0;
+    }
+}
+
+@media (min-width : 501px) {
+    .short-input {
+        min-width: 300px;
     }
 }
 
@@ -44,3 +64,4 @@
         background-color: rgba(0,0,0,0.1);
     }
 }
+

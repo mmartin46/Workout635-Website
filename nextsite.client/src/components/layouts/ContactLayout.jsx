@@ -48,11 +48,11 @@ const ContactLayout = () => {
                     {successMessage && <h6 style={{ opacity: '0.6' }}>{successMessage}</h6>}
                         <div className="col">
                             <h4>Name</h4>
-                        <input onChange={handleChange} name="Name" htmlFor="Name" type="text" />
+                            <input className="short-input" onChange={handleChange} name="Name" htmlFor="Name" type="text" />
                         </div>
                         <div className="col">
                             <h4>Email</h4>
-                        <input onChange={handleChange} name="Email" htmlFor="Email" type="email" />
+                            <input className="short-input" onChange={handleChange} name="Email" htmlFor="Email" type="email" />
                         </div>
                     </div>
                     <div className="padded">
