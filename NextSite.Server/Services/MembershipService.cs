@@ -20,9 +20,15 @@ namespace NextSite.Server.Services
 
         public async Task<MembershipModel?> GetAsync(Int32 id) =>
             await _membershipCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
-        public async Task CreateAsync(MembershipModel membership) =>
+        public async Task CreateAsync(MembershipModel membership)
+        {
+            MembershipModel? foundDuplicateId = await GetAsync(membership.Id);
+            if (foundDuplicateId != null)
+            {
+                ++membership.Id;
+            }
             await _membershipCollection.InsertOneAsync(membership);
-
+        }
         public async Task UpdateAsync(Int32 id, MembershipModel updatedMembership) =>
             await _membershipCollection.ReplaceOneAsync(x => x.Id == id, updatedMembership);
         public async Task RemoveAsync(Int32 id) =>

@@ -1,17 +1,25 @@
 using NextSite.Server.Models;
 using NextSite.Server.Services;
+using Portfolio.Services;
+using Site.Server.Middleware;
+using Microsoft.Extensions.Logging;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddCustomRateLimiter();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddLogging(builder => builder.AddConsole());
+
 
 builder.Services.AddControllers();
 
+builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddSingleton<IService<TrainerModel>, TrainerService>();
 builder.Services.AddSingleton<IService<MembershipModel>, MembershipService>();
 builder.Services.AddSingleton<IBodyService, BodyService>();
@@ -46,6 +54,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseCustomRateLimiter();
 app.UseCors(builder => builder
     .AllowAnyHeader()
     .AllowAnyMethod()

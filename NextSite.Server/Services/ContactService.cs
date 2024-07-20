@@ -14,9 +14,23 @@ namespace NextSite.Server.Services
             _contactCollection = mongoDatabase.GetCollection<ContactModel>("contacts");
         }
 
-        public async Task CreateAsync(ContactModel contact) =>
+        public async Task CreateAsync(ContactModel contact)
+        {
+            bool canAllowId = false;
+            while (!canAllowId)
+            {
+                ContactModel? existingContact = await GetAsync(contact.Id);
+                if (existingContact != null)
+                {
+                    ++contact.Id;
+                }
+                else
+                {
+                    canAllowId = true;
+                }
+            }
             await _contactCollection.InsertOneAsync(contact);
-
+        }
         public async Task<List<ContactModel>> GetAsync() =>
             await _contactCollection.Find(_ => true).ToListAsync();
 
