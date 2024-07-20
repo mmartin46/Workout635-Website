@@ -38,10 +38,11 @@
         min-width: 330px;
     }
 
-    .contact-form > *, h4 {
-        display: block;
+    .contact-form > * {
+
         text-align: center;
-        padding: 0;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
 

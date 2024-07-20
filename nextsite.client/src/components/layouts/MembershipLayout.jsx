@@ -2,10 +2,13 @@
 import { useEffect, useState } from 'react';
 import Topic from '../general/Topic';
 import './MemberCard.scss';
+import { useNavigate } from "react-router-dom";
+import LinkButton from '../buttons/LinkButton';
 
 
 const MembershipLayout = () => {
     const [memberships, setMemberships] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getMemberTypes = () => {
@@ -22,6 +25,12 @@ const MembershipLayout = () => {
 
         getMemberTypes();
     }, [memberships]);
+
+    const navigateToContact = () => {
+        setTimeout(() => {
+            navigate("/contact");
+        }, 300);
+    };
 
 
     return (
@@ -41,7 +50,8 @@ const MembershipLayout = () => {
                                     <h6>Joiners Fee: ${membership.joinerFee.toFixed(2)}</h6>
                                     <h6>Allow Guest: {membership.allowGuest ? "Yes" : "No"}</h6>
                                 </div>
-                                <div className="click-more">
+                                <div onClick={navigateToContact} className="click-more">
+
                                     <h4>Contact Us</h4>
                                 </div>
                             </div>
