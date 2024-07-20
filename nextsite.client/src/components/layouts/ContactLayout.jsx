@@ -2,6 +2,7 @@ import Topic from "../general/Topic";
 import './ContactLayout.scss';
 import { useState, useEffect } from 'react';
 const ContactLayout = () => {
+    const [successMessage, setSuccessMessage] = useState(null);
     const [contactForm, setContactForm] = useState({
         name: '',
         email: '',
@@ -32,6 +33,8 @@ const ContactLayout = () => {
         if (!response.ok) {
             let error = await response.message();
             console.log('Problem submitting', error);
+        } else {
+            setSuccessMessage('Message sent successfully!');
         }
     }
 
@@ -40,9 +43,9 @@ const ContactLayout = () => {
             <Topic title="Contact Us"
                 caption="Have any questions about our products?" />
 
-
             <form onSubmit={ourSubmit} className="contact-form">
-                    <div className="row">
+                <div className="row">
+                    {successMessage && <h6 style={{ opacity: '0.6' }}>{successMessage}</h6>}
                         <div className="col">
                             <h4>Name</h4>
                         <input onChange={handleChange} name="Name" htmlFor="Name" type="text" />
