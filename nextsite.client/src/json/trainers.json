@@ -1,0 +1,18 @@
+{
+  "trainers" : [
+    {
+      "id": 0,
+      "firstName": "John",
+      "lastName": "Walker",
+      "phoneNumber": "000-000-0999",
+      "email": "john.walker@yahoo.com"
+    },
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Walker",
+      "phoneNumber": "000-000-0999",
+      "email": "john.walker@yahoo.com"
+    }
+  ]
+}

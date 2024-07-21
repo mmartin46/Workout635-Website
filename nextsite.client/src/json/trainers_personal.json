@@ -1,0 +1,26 @@
+[
+    {
+        "_id": 1,
+        "firstName": "John",
+        "lastName": "Walker",
+        "phoneNumber": "000-000-0999",
+        "email": "john.walker@yahoo.com",
+        "headshot": "https://i.pinimg.com/originals/cf/27/61/cf27610284d7f050b8469e2c4e75541c.jpg"
+    },
+    {
+        "_id": 2,
+        "firstName": "Sammy",
+        "lastName": "Jackson",
+        "phoneNumber": "000-000-0999",
+        "email": "sammy.jackson99@yahoo.com",
+        "headshot": "https://i.pinimg.com/originals/19/8e/52/198e527e2baa5ef42ecd3eb8dce4e594.jpg"
+    },
+    {
+        "_id": 3,
+        "firstName": "Stephanie",
+        "lastName": "Walker",
+        "phoneNumber": "000-000-0999",
+        "email": "steph.walker@yahoo.com",
+        "headshot": "https://www.publicdomainpictures.net/pictures/330000/velka/headshot.jpg"
+    }
+]
