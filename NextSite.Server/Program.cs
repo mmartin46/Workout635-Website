@@ -20,6 +20,7 @@ builder.Services.AddLogging(builder => builder.AddConsole());
 builder.Services.AddControllers();
 
 builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddSingleton<IService<EmployeeModel>, EmployeeService>();
 builder.Services.AddSingleton<IService<TrainerModel>, TrainerService>();
 builder.Services.AddSingleton<IService<MembershipModel>, MembershipService>();
 builder.Services.AddSingleton<IBodyService, BodyService>();
