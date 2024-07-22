@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './IntroductionLayout.scss';
 import Topic from '../general/Topic';
 import { useNavigate } from "react-router-dom";
+import GeneralMap from '../general/Map';
 
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-// import "leaflet/dist/leaflet.css";
 
 const IntroductionLayout = () => {
     const [employees, setEmployees] = useState([]);
@@ -49,6 +48,7 @@ const IntroductionLayout = () => {
     };
 
     const position = [51.505, -0.09];
+    const mapRef = useRef(null);
 
     return (
         <>
@@ -119,6 +119,9 @@ const IntroductionLayout = () => {
                         during business hours to be able to take care of your workout
                         needs.</h6>
                 </div>
+            </div>
+            <div>
+                <GeneralMap />
             </div>
         </>
     );
