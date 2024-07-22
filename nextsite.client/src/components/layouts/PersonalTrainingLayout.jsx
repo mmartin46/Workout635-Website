@@ -37,7 +37,7 @@ const PersonalTrainingLayout = () => {
                 title="Personal Trainers"
                 caption="It would have been a better night if the guys next to us weren't in the splash zone."
             />
-            <div className="main-padding">
+            <div className="main-padding ">
                 <div className="gray text-center">
                     <div className="text-center">
                         <h1 className="display-4">Meet Our Trainers</h1>

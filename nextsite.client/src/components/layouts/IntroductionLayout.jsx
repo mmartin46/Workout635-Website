@@ -55,7 +55,7 @@ const IntroductionLayout = () => {
                     fitness goals. Our goal is to make sure that you are getting the best out of
                     your gym options for a reasonable financial investment."
                 />
-            <div className="gray text-center">
+            <div className="main-content intro-container gray text-center">
                 <div>
                     <h1 className="display-4">Meet Our Team</h1>
                     <h6>At Workout365, we ensure that our employees are available
@@ -79,16 +79,16 @@ const IntroductionLayout = () => {
                     ))}
                 </div>
             </div>
-            <div>
+            <div className="">
                 <div className="padding-top text-center">
                     <h1 className="display-4">Looking For Oppurtunities</h1>
                     <h6>Are you looking for employment oppurtunies. Feel free
                         to check out our available roles.</h6>
                 </div>
                 <div className="center-div">
-                    <div className="row">
+                    <div className="row spacing-50">
                         {opportunities && opportunities.map((opportunity) => (
-                            <div key={opportunity.id} className="col member-card">
+                            <div key={opportunity.id} className="col-sm-5 member-card">
                                 <div>
                                     <h3>{opportunity.position}</h3>
                                     <h6>Hourly Rate: {opportunity.salary}</h6>
