@@ -49,6 +49,7 @@ const IntroductionLayout = () => {
         <>
             <Topic
                 title="Who We Are"
+                className="padding"
                 caption="Here at Workout365, we are determined to make sure that our customers
                     receive the equipment they need in order to become successful with their
                     fitness goals. Our goal is to make sure that you are getting the best out of
