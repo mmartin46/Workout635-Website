@@ -17,7 +17,13 @@ const Header = () => {
                     About Us
                     </PlainLink>
                 </li>
-                <li><a>Contact</a></li>
+                <li>
+                    <PlainLink
+                    to="/contact"
+                    fontColor="white">
+                    Contact
+                    </PlainLink>
+                </li>
             </ul>
         </div>
     )
