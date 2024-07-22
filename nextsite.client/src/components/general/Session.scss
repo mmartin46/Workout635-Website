@@ -4,6 +4,10 @@
     filter: brightness(1.0);
 }
 
+.top-pad {
+    margin-top: 20px;
+}
+
 .next-section {
     display: block;
     align-content: center;
@@ -17,7 +21,7 @@
     vertical-align: central;
     padding: 50px;
     color: white;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
     transition-duration: 0.3s;

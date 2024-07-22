@@ -3,6 +3,9 @@ import './IntroductionLayout.scss';
 import Topic from '../general/Topic';
 import { useNavigate } from "react-router-dom";
 
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+// import "leaflet/dist/leaflet.css";
+
 const IntroductionLayout = () => {
     const [employees, setEmployees] = useState([]);
     const [opportunities, setOpportunities] = useState([]);
@@ -44,6 +47,8 @@ const IntroductionLayout = () => {
             navigate("/contact");
         }, 300);
     };
+
+    const position = [51.505, -0.09];
 
     return (
         <>
@@ -104,6 +109,15 @@ const IntroductionLayout = () => {
                             </div>
                         ))}
                     </div>
+                </div>
+            </div>
+            <div className="main-content intro-container gray text-center">
+                <a href="#work"></a>
+                <div>
+                    <h1 className="display-4">Our Work</h1>
+                    <h6>At Workout365, we ensure that our employees are available
+                        during business hours to be able to take care of your workout
+                        needs.</h6>
                 </div>
             </div>
         </>

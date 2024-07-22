@@ -5,6 +5,18 @@
     padding-right: 15%;
 }
 
+#map-container {
+    position: relative;
+    height: 180px;
+    width: 600px;
+}
+
+#map {
+    position: relative;
+    height: inherit;
+    width: inherit;
+}
+
 .center-div {
     padding: 50px;
     display: flex;

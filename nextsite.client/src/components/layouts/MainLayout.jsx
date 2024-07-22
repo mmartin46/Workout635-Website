@@ -37,7 +37,9 @@ const MainLayout = () => {
     return (
         <>
             <PageCarousel topics={topics} />
-            <Highlights highlights={highlights} />
+            <div className="top-pad">
+                <Highlights highlights={highlights} />
+            </div>
             <div className="next-section" style={{}}>
                 <div>
                     <div className="row">
