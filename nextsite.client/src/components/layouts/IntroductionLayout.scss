@@ -8,6 +8,13 @@
 .center-div {
     padding: 50px;
     display: flex;
+    align-content: center;
+    justify-content: center;
+
+}
+
+.center-div > * {
+    display: flex;
     justify-content: center;
 }
 

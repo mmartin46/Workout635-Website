@@ -80,7 +80,8 @@ const IntroductionLayout = () => {
                 </div>
             </div>
             <div className="">
-                <div className="padding-top text-center">
+                <a href="#careers"></a>
+                <div className="text-center">
                     <h1 className="display-4">Looking For Oppurtunities</h1>
                     <h6>Are you looking for employment oppurtunies. Feel free
                         to check out our available roles.</h6>

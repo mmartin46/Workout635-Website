@@ -50,8 +50,13 @@ const Footer = () => {
                                 Contact
                             </PlainLink>
                         </li>
-                        <li>Careers</li>
-                        <li>(Fake)</li>
+                        <li>
+                            <PlainLink
+                                to="/intro#careers"
+                                fontColor="white">
+                                Careers
+                            </PlainLink>
+                        </li>
                     </ul>
                 </div>
             </div>
