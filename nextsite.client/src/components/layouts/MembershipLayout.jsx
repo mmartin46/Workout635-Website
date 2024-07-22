@@ -41,10 +41,9 @@ const MembershipLayout = () => {
             <div className="main-padding member-container row" style={{ backgroundColor: "rgba(230,230,230,1)", padding: "30px" }}>
                 <div className="text-center">
                     <h1 className="display-4">Our Membership Deals</h1>
-                    <h6>At Workout365, we ensure that our employees are available
-                        during business hours to be able to take care of your workout
-                        needs.</h6>
+                    <h6>Not sure what to look for? Check out all our memberships below!</h6>
                 </div>
+                <br/>
                 {memberships &&
                     memberships.map((membership) => (
                         <div className="col member-card" key={membership.id}>
