@@ -4,9 +4,9 @@
     margin: 10px;
     min-width: 250px;
     max-width: 300px;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 5 / 3;
     background: url('/public/metal_0.png');
-    background-size: cover;   
+    background-size: 100% 100%;   
     filter: grayscale(1.0);
 }
 

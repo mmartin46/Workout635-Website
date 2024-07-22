@@ -38,18 +38,26 @@ const PersonalTrainingLayout = () => {
                 caption="It would have been a better night if the guys next to us weren't in the splash zone."
             />
             <div className="main-padding">
-                <div className="row">
-                    {trainers && trainers.map((trainer) => (
-                        <div className="col serv-div" key={trainer.id}>
-                            <img src={trainer.headshot} />
-                            <div>
-                                <h2>{trainer.firstName} {trainer.lastName}</h2>
-                                <h5>Personal Trainer</h5>
-                                <h5>{trainer.phoneNumber}</h5>
-                                <h5>{trainer.email}</h5>
+                <div className="gray text-center">
+                    <div className="text-center">
+                        <h1 className="display-4">Meet Our Trainers</h1>
+                        <h6>At Workout365, we ensure that our employees are available
+                            during business hours to be able to take care of your workout
+                            needs.</h6>
+                    </div>
+                    <div className="row">
+                        {trainers && trainers.map((trainer) => (
+                            <div className="col serv-div" key={trainer.id}>
+                                <img src={trainer.headshot} />
+                                <div>
+                                    <h2>{trainer.firstName} {trainer.lastName}</h2>
+                                    <h5>Personal Trainer</h5>
+                                    <h5>{trainer.phoneNumber}</h5>
+                                    <h5>{trainer.email}</h5>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
