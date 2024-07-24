@@ -8,7 +8,11 @@ import GeneralMap from '../general/Map';
 const IntroductionLayout = () => {
     const [employees, setEmployees] = useState([]);
     const [opportunities, setOpportunities] = useState([]);
+    const [timeline, setTimeline] = useState([]);
+
     const navigate = useNavigate();
+
+
 
     useEffect(() => {
         const fetchEmployees = () => {
@@ -40,6 +44,9 @@ const IntroductionLayout = () => {
 
         fetchOpportunities();
     }, [opportunities]);
+
+
+
 
     const navigateToContact = () => {
         setTimeout(() => {
@@ -118,6 +125,8 @@ const IntroductionLayout = () => {
                     <h6>At Workout365, we ensure that our employees are available
                         during business hours to be able to take care of your workout
                         needs.</h6>
+                    <h3>Our Timeline</h3>
+                    <h6></h6>
                 </div>
             </div>
             <div>

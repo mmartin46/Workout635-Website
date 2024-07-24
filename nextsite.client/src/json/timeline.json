@@ -1,0 +1,42 @@
+[
+    {
+        "_id": 0,
+        "year": 1999,
+        "topic": "Workout635 opened up its first workout center, which was founded by Richard Samson"
+    },
+    {
+        "_id": 1,
+        "year": 2001,
+        "topic": "Richard Samson opened up Workout635 centers in 2 states"
+    },
+    {
+        "_id": 2,
+        "year": 2003,
+        "topic": "Workout635 obtained an average of 200 customers daily"
+    },
+    {
+        "_id": 3,
+        "year": 2005,
+        "topic": "Richard Samson was awarded with the Virginia Gym of The Year reward"
+    },
+    {
+        "_id": 4,
+        "year": 2007,
+        "topic": "Workout635 opened up workout centers in all US States"
+    },
+    {
+        "_id": 5,
+        "year": 2015,
+        "topic": "Richard Samson stepped down and John Turner became president of Workout635"
+    },
+    {
+        "_id": 6,
+        "year": 2018,
+        "topic": "John Turner opened up their first three Workout635 centers in Europe"
+    },
+    {
+        "_id": 7,
+        "year": 2023,
+        "topic": "John Turner received the Best Gym of The Year reward"
+    }
+]
