@@ -1,8 +1,7 @@
 .gray {
     background-color: rgb(230,230,230);
     padding: 30px;
-    padding-left: 15%;
-    padding-right: 15%;
+    border-radius: 20px;
 }
 
 #map-container {
@@ -16,6 +15,8 @@
     height: inherit;
     width: inherit;
 }
+
+
 
 .center-div {
     padding: 50px;

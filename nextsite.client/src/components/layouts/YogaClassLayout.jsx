@@ -40,7 +40,7 @@ const YogaClassLayout = () => {
                 </div>
                 <div className="row">
                     {yogaClasses && yogaClasses.map((yoga) => (
-                        <div className="col serv-div" key={yoga.id}>
+                        <div className="col serv-div text-center" key={yoga.id}>
                             <img src={yoga.image} />
                             <div>
                                 <h2>{yoga.name}</h2>

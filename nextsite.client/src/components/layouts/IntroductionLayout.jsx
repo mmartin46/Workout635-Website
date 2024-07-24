@@ -10,6 +10,18 @@ import EmployComponent from './inner/EmployComponent';
 const IntroductionLayout = () => {
     const [timeline, setTimeline] = useState([]);
 
+    useEffect(() => {
+        $.ajax({
+            url: "https://localhost:44314/Timeline",
+            type: "GET",
+            crossDomain: true,
+            dataType: 'json',
+            success: function (res) {
+                setTimeline(res);
+            }
+        });
+    }, [timeline]);
+
 
     return (
         <>
@@ -27,17 +39,38 @@ const IntroductionLayout = () => {
             <EmployComponent/>
             <div className="main-content intro-container gray text-center">
                 <a href="#work"></a>
-                <div>
+                <div className="timeline">
                     <h1 className="display-4">Our Work</h1>
                     <h6>At Workout365, we ensure that our employees are available
                         during business hours to be able to take care of your workout
                         needs.</h6>
-                    <h3>Our Timeline</h3>
-                    <h6></h6>
+                    <div style={{ textAlign: 'center'}}>
+                        <h3>Our Timeline</h3>
+                        {timeline && timeline.map((event) => (
+                            <h6 key={event.id}><b>{event.year}</b> - {event.topic}</h6>
+                        ))}
+                        <div className="row">
+                            <div className="col serv-div">
+                                <img src="https://th.bing.com/th/id/OIP.qiR478K0gMDzfUj5iZlrogHaLH?rs=1&pid=ImgDetMain" />
+                                <div className="align-content-center">
+                                    <h4>Richard Samson</h4>
+                                    <h5>Former Workout635 President</h5>
+                                </div>
+                            </div>
+                            <div className="col serv-div">
+                                <img src="https://i.pinimg.com/originals/e3/7e/0e/e37e0e25686c2139b281a57a5b4906f2.jpg" />
+                                <div>
+                                    <h4>John Turner</h4>
+                                    <h5>Current Workout635 President</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div>
-                <GeneralMap />
+                {/*<GeneralMap />*/}
             </div>
         </>
     );
