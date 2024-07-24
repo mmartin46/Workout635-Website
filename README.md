@@ -1,6 +1,6 @@
-﻿# TaskManager
+﻿# Workout635 Website
 
-Workout635 Website developed utilizing React.JS and ASP.NET CORE
+Workout635 Workout Center Mock Website developed utilizing React.JS and ASP.NET CORE
 
 ## Key Features
 
