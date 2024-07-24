@@ -14,7 +14,7 @@ Workout635 Workout Center Mock Website developed utilizing React.JS and ASP.NET 
 <a href='https://postimg.cc/mtNZYtPY' target='_blank'><img src='https://i.postimg.cc/mtNZYtPY/main-3.gif' border='0' alt='main-3'/></a>
 <a href='https://postimg.cc/XZBTgzsR' target='_blank'><img src='https://i.postimg.cc/XZBTgzsR/main-2.png' border='0' alt='main-2'/></a>
 
-<a href='https://postimg.cc/vcDxX7dr' target='_blank'><img src='https://i.postimg.cc/vcDxX7dr/main-0.png' border='0' alt='main-0'/></a>
+[main-0.png](https://postimg.cc/vcDxX7dr)
 
 ### Technologies Used
 #### Database: MongoDB, MongoDBCompass
