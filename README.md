@@ -7,6 +7,7 @@ Workout635 Workout Center Mock Website developed utilizing React.JS and ASP.NET 
 - Utilized Leaflet API for online map navigation
 - Response design implemented for mobile/desktop devices
 - Integrated MongoDB as a database for accessing membership information
+- Implemented a contact service with STMP Client
 
 #### Footage
 <a href='https://postimg.cc/H85kZ85T' target='_blank'><img src='https://i.postimg.cc/H85kZ85T/main-00.png' border='0' alt='main-00'/></a>
