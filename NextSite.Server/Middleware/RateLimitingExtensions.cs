@@ -13,6 +13,7 @@ namespace Site.Server.Middleware
             services.AddRateLimiter(options =>
             {
                 ConfigureCustomRateLimiter("contact", ref options, permitLimit: 15);
+                ConfigureCustomRateLimiter("location", ref options, permitLimit: 15);
             });
 
             return services;

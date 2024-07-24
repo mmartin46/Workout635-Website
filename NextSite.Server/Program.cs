@@ -21,6 +21,7 @@ builder.Services.AddLogging(builder => builder.AddConsole());
 builder.Services.AddControllers();
 
 builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddSingleton<IService<LocationModel>, LocationService>();
 builder.Services.AddSingleton<IService<TimelineModel>, TimelineService>();
 builder.Services.AddSingleton<IService<EmploymentModel>, EmploymentService>();
 builder.Services.AddSingleton<IService<EmployeeModel>, EmployeeService>();

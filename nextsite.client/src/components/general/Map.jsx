@@ -5,6 +5,7 @@ import { useMapEvents } from 'react-leaflet/hooks'
 import "./Map.css"
 
 
+
 function LocationMarker() {
     const [position, setPosition] = useState(null);
     const map = useMapEvents({
@@ -19,13 +20,13 @@ function LocationMarker() {
 
     return position === null ? null : (
         <Marker position={position}>
-            <Popup>Your location</Popup>
+            <Popup>Your Location</Popup>
         </ Marker>
     )
 }
 
 
-const GeneralMap = () => {
+const GeneralMap = ({ locations }) => {
 
     return (
         <MapContainer center={{ lat: 51, lng: -0.09 }} zoom={13} scrollWheelZoom={false}>
@@ -33,7 +34,13 @@ const GeneralMap = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <LocationMarker/>
+            <LocationMarker />
+            {locations && locations.map((loc) => (
+                <Marker key={loc.id} position={loc.location}>
+                    <Popup>{loc.name}</Popup>
+                </Marker>            
+            ))}
+
         </MapContainer>
     );
 };

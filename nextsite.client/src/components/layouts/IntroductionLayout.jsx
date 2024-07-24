@@ -1,7 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import './IntroductionLayout.scss';
 import Topic from '../general/Topic';
-import { useNavigate } from "react-router-dom";
 import GeneralMap from '../general/Map';
 import StaffComponent from './inner/StaffComponent';
 import EmployComponent from './inner/EmployComponent';
@@ -9,6 +8,24 @@ import EmployComponent from './inner/EmployComponent';
 
 const IntroductionLayout = () => {
     const [timeline, setTimeline] = useState([]);
+    const [locations, setLocations] = useState([]);
+
+    useEffect(() => {
+        const getLocations = () => {
+            $.ajax({
+                url: "https://localhost:44314/Locations",
+                type: 'GET',
+                crossDomain: true,
+                dataType: 'json',
+                success: function (res) {
+                    setLocations(res);
+                }
+            })
+        };
+
+        getLocations();
+    }, []);
+
 
     useEffect(() => {
         $.ajax({
@@ -71,7 +88,7 @@ const IntroductionLayout = () => {
             </div>
             <div className="text-center">
                 <h1 className="display-4">Our Locations</h1>
-                <GeneralMap />
+                <GeneralMap locations={locations}  />
             </div>
         </>
     );
