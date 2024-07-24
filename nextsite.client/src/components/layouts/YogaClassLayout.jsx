@@ -30,7 +30,7 @@ const YogaClassLayout = () => {
                 caption="The fence was confused about whether it was supposed to keep things in or keep things out." />
 
 
-            <div className="main-padding">
+            <div className="main-padding fadeUp">
                 <div className="heading-part row">
                     <img src="/public/yoga_PNG75.png" />
                     <div className="topic col">

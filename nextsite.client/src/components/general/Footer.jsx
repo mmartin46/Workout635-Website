@@ -36,7 +36,10 @@ const Footer = () => {
                         <li><PlainLink
                             to="/intro"
                             fontColor="white">Introduction</PlainLink></li>
-                        <li>Location</li>
+                        <li><PlainLink
+                            to="/intro#locations"
+                            fontColor="white"
+                            >Location</PlainLink></li>
                         <li>
                             <PlainLink
                              to="/intro#work"

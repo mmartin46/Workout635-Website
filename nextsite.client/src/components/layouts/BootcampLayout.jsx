@@ -30,7 +30,7 @@ const BootCampLayout = () => {
                 caption="The fence was confused about whether it was supposed to keep things in or keep things out." />
 
 
-            <div className="main-padding">
+            <div className="main-padding fadeUp">
                 <div className="heading-part row">
                     <img src="/public/athlete.png" />
                     <div className="topic col">

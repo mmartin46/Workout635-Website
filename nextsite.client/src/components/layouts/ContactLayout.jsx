@@ -43,7 +43,7 @@ const ContactLayout = () => {
             <Topic title="Contact Us"
                 caption="Have any questions about our products?" />
 
-            <form onSubmit={ourSubmit} className="contact-form">
+            <form onSubmit={ourSubmit} className="contact-form fadeUp">
                 <div className="row">
                     {successMessage && <h6 style={{ opacity: '0.6' }}>{successMessage}</h6>}
                         <div className="col">
