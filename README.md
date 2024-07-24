@@ -9,12 +9,10 @@ Workout635 Workout Center Mock Website developed utilizing React.JS and ASP.NET 
 - Integrated MongoDB as a database for accessing membership information
 
 #### Footage
-<a href='https://postimg.cc/vcDxX7dr' target='_blank'><img src='https://i.postimg.cc/vcDxX7dr/main-0.png' border='0' alt='main-0'/></a>
-<a href='https://postimg.cc/K38f0KZ1' target='_blank'><img src='https://i.postimg.cc/K38f0KZ1/main-1.png' border='0' alt='main-1'/></a>
-<a href='https://postimg.cc/mtNZYtPY' target='_blank'><img src='https://i.postimg.cc/mtNZYtPY/main-3.gif' border='0' alt='main-3'/></a>
-<a href='https://postimg.cc/XZBTgzsR' target='_blank'><img src='https://i.postimg.cc/XZBTgzsR/main-2.png' border='0' alt='main-2'/></a>
-
-
+<a href='https://postimg.cc/H85kZ85T' target='_blank'><img src='https://i.postimg.cc/H85kZ85T/main-00.png' border='0' alt='main-00'/></a>
+<a href='https://postimg.cc/NL76jKS3' target='_blank'><img src='https://i.postimg.cc/NL76jKS3/main-01.png' border='0' alt='main-01'/></a>
+<a href='https://postimg.cc/LhZWC3qz' target='_blank'><img src='https://i.postimg.cc/LhZWC3qz/main-02.png' border='0' alt='main-02'/></a>
+<a href='https://postimg.cc/mtNZYtPY' target='_blank'><img src='https://i.postimg.cc/mtNZYtPY/main-3.gif' border='0' al>
 
 ### Technologies Used
 #### Database: MongoDB, MongoDBCompass
