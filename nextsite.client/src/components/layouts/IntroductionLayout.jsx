@@ -69,8 +69,9 @@ const IntroductionLayout = () => {
 
                 </div>
             </div>
-            <div>
-                {/*<GeneralMap />*/}
+            <div className="text-center">
+                <h1 className="display-4">Our Locations</h1>
+                <GeneralMap />
             </div>
         </>
     );

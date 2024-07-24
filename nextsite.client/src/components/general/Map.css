@@ -1,0 +1,7 @@
+
+
+/* sizing of map container */
+.leaflet-container {
+    height: 500px;
+    margin: 5%;
+}

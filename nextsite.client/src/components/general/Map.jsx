@@ -1,8 +1,8 @@
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import { useState, useEffect } from 'react';
-// import "leaflet/dist/leaflet.css";
+import { useState } from 'react';
+import "leaflet/dist/leaflet.css";
 import { useMapEvents } from 'react-leaflet/hooks'
-
+import "./Map.css"
 
 
 function LocationMarker() {
