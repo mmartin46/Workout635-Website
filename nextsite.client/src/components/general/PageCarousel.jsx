@@ -11,7 +11,7 @@ const PageCarousel = ({ topics }) => {
             <Carousel>
                 
                 {topics.map((topic, index) => (
-                    <Carousel.Item interval={20000000} key={index}>
+                    <Carousel.Item interval={2000} key={index}>
                         <img
                             className="d-block w-100 carousel-img"
                             src={topic.src}

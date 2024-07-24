@@ -24,7 +24,7 @@ class Highlight {
 const MainLayout = () => {
     const topics = [
         new Topic("Starts With You", "$14.99 a month", "/mi.png"),
-        new Topic("Starts With You", "$14.99 a month", "/mi.png")
+        new Topic("Starts With You", "$14.99 a month", "https://wallpaperaccess.com/full/2465473.jpg")
     ];
 
     const highlights = [

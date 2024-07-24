@@ -18,8 +18,8 @@ $defaultTextColor: white;
     font-style: oblique;
     color: white;
     display: block;
-    text-align: left;
-    justify-content: left;
+    text-align: center;
+    justify-content: center;
     align-content: center;
     position: absolute;
     top: -330px;
@@ -29,4 +29,5 @@ $defaultTextColor: white;
     object-fit: cover;
     background-size: cover;
     height: 600px;
+    filter: brightness(0.6);
 }
