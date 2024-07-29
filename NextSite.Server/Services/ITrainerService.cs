@@ -9,5 +9,7 @@ namespace NextSite.Server.Services
         Task<T?> GetAsync(Int32 id);
         Task RemoveAsync(Int32 id);
         Task UpdateAsync(Int32 id, T updatedModel);
+
+        
     }
 }

@@ -5,7 +5,7 @@ namespace NextSite.Server.Services
 {
     public class GeneralService<T> : IService<T> where T : IModel
     {
-        private readonly IMongoCollection<T> _collection;
+        protected readonly IMongoCollection<T> _collection;
 
         public GeneralService(string collectionName)
         {

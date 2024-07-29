@@ -31,7 +31,7 @@ builder.Services.AddGeneralService<TimelineModel>("timeline");
 builder.Services.AddGeneralService<EmployeeModel>("employees");
 
 builder.Services.AddSingleton<IService<MembershipModel>, MembershipService>();
-builder.Services.AddSingleton<IBodyService, BodyService>();
+builder.Services.AddSingleton<IBodyService<BodyModel>>(service => new BodyService<BodyModel>("services"));
 builder.Services.AddSingleton<IService<ContactModel>, ContactService>();
 
 builder.Services.AddCors(options =>

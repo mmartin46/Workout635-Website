@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NextSite.Server.Models;
 using NextSite.Server.Services;
 
 namespace NextSite.Server.Controllers
 {
     public class BodyController : Controller
     {
-        private readonly IBodyService _bodyService;
-        public BodyController(IBodyService bodyService)
+        private readonly IBodyService<BodyModel> _bodyService;
+        public BodyController(IBodyService<BodyModel> bodyService)
         {
             _bodyService = bodyService;
         }

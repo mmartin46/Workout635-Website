@@ -2,12 +2,8 @@
 
 namespace NextSite.Server.Services
 {
-    public interface IBodyService
+    public interface IBodyService<T> : IService<T> where T : BodyModel
     {
-        Task<List<BodyModel>> GetAsync();
-        Task<BodyModel?> GetAsync(int id);
-        Task<List<BodyModel>> GetByTypeAsync(string type);
-        Task RemoveAsync(int id);
-        Task UpdateAsync(int id, BodyModel bodyModel);
+        Task<List<T>> GetByTypeAsync(string type);
     }
 }
