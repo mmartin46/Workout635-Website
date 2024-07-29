@@ -2,7 +2,7 @@
 
 namespace NextSite.Server.Services
 {
-    public interface IService<T>
+    public interface IService<T> where T : IModel
     {
         Task CreateAsync(T trainer);
         Task<List<T>> GetAsync();

@@ -4,6 +4,7 @@ using Portfolio.Services;
 using Site.Server.Middleware;
 using Microsoft.Extensions.Logging;
 using NextSite.Server.Repositories;
+using NextSite.Server.Middleware;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,11 +22,14 @@ builder.Services.AddLogging(builder => builder.AddConsole());
 builder.Services.AddControllers();
 
 builder.Services.AddTransient<IEmailService, EmailService>();
-builder.Services.AddSingleton<IService<LocationModel>, LocationService>();
-builder.Services.AddSingleton<IService<TimelineModel>, TimelineService>();
-builder.Services.AddSingleton<IService<EmploymentModel>, EmploymentService>();
-builder.Services.AddSingleton<IService<EmployeeModel>, EmployeeService>();
-builder.Services.AddSingleton<IService<TrainerModel>, TrainerService>();
+
+builder.Services.AddGeneralService<AccountModel>("accounts");
+builder.Services.AddGeneralService<EmploymentModel>("employment");
+builder.Services.AddGeneralService<LocationModel>("locations");
+builder.Services.AddGeneralService<TrainerModel>("personal_trainers");
+builder.Services.AddGeneralService<TimelineModel>("timeline");
+builder.Services.AddGeneralService<EmployeeModel>("employees");
+
 builder.Services.AddSingleton<IService<MembershipModel>, MembershipService>();
 builder.Services.AddSingleton<IBodyService, BodyService>();
 builder.Services.AddSingleton<IService<ContactModel>, ContactService>();

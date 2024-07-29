@@ -2,9 +2,8 @@
 
 namespace NextSite.Server.Models
 {
-    public class BodyModel
+    public class BodyModel : IModel
     {
-        public Int32 Id { get; set; }
         [BsonElement("type")]
         public string Type { get; set; } = "Unknown";
         [BsonElement("name")]

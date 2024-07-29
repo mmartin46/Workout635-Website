@@ -16,6 +16,7 @@ import YogaClassLayout from './components/layouts/YogaClassLayout';
 import BootCampLayout from './components/layouts/BootcampLayout';
 import ContactLayout from './components/layouts/ContactLayout';
 import IntroductionLayout from './components/layouts/IntroductionLayout'; 
+import CreateAccountLayout from './components/layouts/CreateAccountLayout';
 
 const ScreenRoutes = () => {
     return (
@@ -26,7 +27,8 @@ const ScreenRoutes = () => {
             <Route path="/yoga" element={<YogaClassLayout />} />
             <Route path="/bootcamp" element={<BootCampLayout />} />
             <Route path="/contact" element={<ContactLayout />} />
-            <Route path="/intro" element={<IntroductionLayout/> }/>
+            <Route path="/intro" element={<IntroductionLayout />} />
+            <Route path='/create' element={<CreateAccountLayout/> }/>
         </Routes>
     );
 }

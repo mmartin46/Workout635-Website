@@ -2,9 +2,8 @@
 
 namespace NextSite.Server.Models
 {
-    public class EmploymentModel
+    public class EmploymentModel : IModel
     {
-        public Int32 Id { get; set; }
         [BsonElement("position")]
         public string? Position { get; set; }
         [BsonElement("salary")]

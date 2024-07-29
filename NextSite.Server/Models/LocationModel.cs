@@ -2,9 +2,8 @@
 
 namespace NextSite.Server.Models
 {
-    public class LocationModel
+    public class LocationModel : IModel
     {
-        public Int32 Id { get; set; }
         [BsonElement("location")]
         public Double[]? Location { get; set; }
         [BsonElement("name")]

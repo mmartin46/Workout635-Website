@@ -2,9 +2,8 @@
 
 namespace NextSite.Server.Models
 {
-    public class TrainerModel
+    public class TrainerModel : IModel
     {
-        public Int32 Id { get; set; }
         
         [BsonElement("firstName")]
         public string FirstName { get; set; }

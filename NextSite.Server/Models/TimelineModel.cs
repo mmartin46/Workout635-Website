@@ -2,9 +2,8 @@
 
 namespace NextSite.Server.Models
 {
-    public class TimelineModel
+    public class TimelineModel : IModel
     {
-        public Int32 Id { get; set; }
         [BsonElement("year")]
         public Int32 Year { get; set; }
         [BsonElement("topic")]
