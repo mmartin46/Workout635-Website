@@ -30,11 +30,7 @@ namespace NextSite.Server.Controllers
             await _contactService.CreateAsync(contact);
 
             bool didSend = await _emailService.SendEmailAsync(Constants.MY_EMAIL, contact.Name + "(" + contact.Email + ")" + " - " + contact.Header, contact.Message);
-            if (!didSend)
-            {
-                return BadRequest("Problem sending email");
-            }
-            return Ok();
+            return (!didSend) ? BadRequest("Problem sending email") : Ok();
         }
     }
 }
