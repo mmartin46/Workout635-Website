@@ -1,6 +1,6 @@
 import Topic from "../general/Topic";
 import './ContactLayout.scss';
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 const ContactLayout = () => {
     const [successMessage, setSuccessMessage] = useState(null);
     const [contactForm, setContactForm] = useState({
@@ -9,6 +9,7 @@ const ContactLayout = () => {
         header: '',
         message: ''
     });
+    const nameRef = useRef();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -31,8 +32,9 @@ const ContactLayout = () => {
         });
 
         if (!response.ok) {
-            let error = await response.message();
+            let error = await response.message;
             console.log('Problem submitting', error);
+            nameRef.current.focus();
         } else {
             setSuccessMessage('Message sent successfully!');
         }
@@ -47,8 +49,8 @@ const ContactLayout = () => {
                 <div className="row">
                     {successMessage && <h6 style={{ opacity: '0.6' }}>{successMessage}</h6>}
                         <div className="col">
-                            <h4>Name</h4>
-                            <input className="short-input" onChange={handleChange} name="Name" htmlFor="Name" type="text" />
+                        <h4>Name</h4>
+                        <input className="short-input" ref={nameRef}  onChange={handleChange} name="Name" htmlFor="Name" type="text" />
                         </div>
                         <div className="col">
                             <h4>Email</h4>

@@ -27,10 +27,34 @@ namespace NextSite.Server.Controllers
                 return BadRequest();
             }
 
+            if (!ValidPropertyLength(contact))
+            {
+                return BadRequest();
+            }
+
             await _contactService.CreateAsync(contact);
 
             bool didSend = await _emailService.SendEmailAsync(Constants.MY_EMAIL, contact.Name + "(" + contact.Email + ")" + " - " + contact.Header, contact.Message);
             return (!didSend) ? BadRequest("Problem sending email") : Ok();
+        }
+
+        private bool ValidPropertyLength(ContactModel contact)
+        {
+            if (contact.Name == null)
+            {
+                return false;
+            }
+            else if (contact.Message == null)
+            {
+                return false;
+            }
+
+
+            if (contact.Name.Length <= 2 || contact.Message.Length <= 2)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

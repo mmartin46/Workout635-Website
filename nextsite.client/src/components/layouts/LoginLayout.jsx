@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const LoginLayout = () => {
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''
     });
+    const usernameRef = useRef();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -28,7 +29,8 @@ const LoginLayout = () => {
 
         if (!response.ok) {
             let error = await response.json();
-            console.log('Problem submitting', error)
+            console.log('Problem submitting', error);
+            usernameRef.current.focus();
         }
     }
 
@@ -42,7 +44,7 @@ const LoginLayout = () => {
                     <div className="credBox">
                         <div>
                             <h5>Username</h5>
-                            <input onChange={handleChange} name="Username" htmlFor="Username" type="text" />
+                            <input onChange={handleChange} ref={usernameRef} name="Username" htmlFor="Username" type="text" />
                         </div>
                         <div>
                             <h5>Password</h5>

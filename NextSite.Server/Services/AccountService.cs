@@ -17,7 +17,7 @@ namespace NextSite.Server.Services
         {
             foreach (PropertyInfo property in GetProperties(account))
             {
-                if (property.GetValue(account) == null)
+                if (property.GetValue(account) == null || property.GetValue(account)!.ToString()!.Length <= 1)
                 {
                     return false;
                 }

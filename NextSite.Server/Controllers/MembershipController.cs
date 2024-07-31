@@ -16,7 +16,7 @@ namespace NextSite.Server.Controllers
         [Route("/Memberships")]
         public async Task<JsonResult> GetMemberships()
         {
-            var memberships = await _membershipService.GetAsync();
+            var memberships = await _membershipService!.GetAsync();
             return Json(memberships);
         }
 

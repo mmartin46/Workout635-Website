@@ -5,6 +5,7 @@ using Site.Server.Middleware;
 using Microsoft.Extensions.Logging;
 using NextSite.Server.Repositories;
 using NextSite.Server.Middleware;
+using AutoMapper;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,6 +37,8 @@ builder.Services.AddSingleton<IService<AccountModel>>(service => new AccountServ
 builder.Services.AddSingleton<IService<MembershipModel>, MembershipService>();
 builder.Services.AddSingleton<IBodyService<BodyModel>>(service => new BodyService<BodyModel>("services"));
 builder.Services.AddSingleton<IService<ContactModel>, ContactService>();
+
+
 
 builder.Services.AddCors(options =>
 {

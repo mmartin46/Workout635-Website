@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import './CreateAccount.scss';
 const CreateAccountLayout = () => {
     const [credentials, setCredentials] = useState({
@@ -8,6 +8,8 @@ const CreateAccountLayout = () => {
         email: '',
         confirmEmail: ''
     });
+    const usernameRef = useRef();
+
     const [successMessage, setSuccessMessage] = useState(null);
 
     const handleChange = (e) => {
@@ -33,6 +35,7 @@ const CreateAccountLayout = () => {
         if (!response.ok) {
             let error = await response.json();
             console.log('Problem submitting', error);
+            usernameRef.current.focus();
         } else {
             setSuccessMessage('Account created!');
         }
@@ -52,7 +55,7 @@ const CreateAccountLayout = () => {
                         </div>
                         <div>
                             <h5>Password</h5>
-                            <input onChange={handleChange} name="Password" htmlFor="Password" type="password"/>
+                            <input onChange={handleChange} ref={usernameRef} name="Password" htmlFor="Password" type="password"/>
                         </div>
                         <div>
                             <h5>Confirm Password</h5>
