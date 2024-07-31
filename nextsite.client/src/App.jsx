@@ -17,6 +17,7 @@ import BootCampLayout from './components/layouts/BootcampLayout';
 import ContactLayout from './components/layouts/ContactLayout';
 import IntroductionLayout from './components/layouts/IntroductionLayout'; 
 import CreateAccountLayout from './components/layouts/CreateAccountLayout';
+import LoginLayout from './components/layouts/LoginLayout';
 
 const ScreenRoutes = () => {
     return (
@@ -28,7 +29,8 @@ const ScreenRoutes = () => {
             <Route path="/bootcamp" element={<BootCampLayout />} />
             <Route path="/contact" element={<ContactLayout />} />
             <Route path="/intro" element={<IntroductionLayout />} />
-            <Route path='/create' element={<CreateAccountLayout/> }/>
+            <Route path='/create' element={<CreateAccountLayout />} />
+            <Route path='/login' element={<LoginLayout/> }/>
         </Routes>
     );
 }

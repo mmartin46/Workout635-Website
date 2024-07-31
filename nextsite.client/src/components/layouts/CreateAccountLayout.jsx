@@ -31,7 +31,7 @@ const CreateAccountLayout = () => {
         });
 
         if (!response.ok) {
-            let error = await response.message;
+            let error = await response.json();
             console.log('Problem submitting', error);
         } else {
             setSuccessMessage('Account created!');
