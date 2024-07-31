@@ -69,6 +69,8 @@ namespace NextSite.Server.Services
             var users = await GetByUsername(contact.Username!);
             if (users.Count == 0)
             {
+                var allUsers = await GetAsync();
+                contact.Id = allUsers.Count();
                 await _collection.InsertOneAsync(contact);
             }
         }

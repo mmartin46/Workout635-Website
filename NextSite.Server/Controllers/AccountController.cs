@@ -19,11 +19,15 @@ namespace NextSite.Server.Controllers
 
         [HttpPost]
         [Route("/AddAccount")]
-        public async Task AddAccount([FromBody] AccountModel account)
+        public async Task<IActionResult> AddAccount([FromBody] AccountModel account)
         {
- 
-
+            if (account == null)
+            {
+                return BadRequest();
+            }
+            
             await _service.CreateAsync(account);
+            return Ok();
         }
 
     }
