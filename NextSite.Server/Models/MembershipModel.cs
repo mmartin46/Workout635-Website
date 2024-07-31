@@ -5,7 +5,7 @@ namespace NextSite.Server.Models
     public class MembershipModel : IModel
     {
         [BsonElement("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
         [BsonElement("price")]
         public Int32 Price { get; set; }
         [BsonElement("joiner_fee")]

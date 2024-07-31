@@ -10,7 +10,10 @@ using NextSite.Server.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddLogging(builder => builder
+                                        .AddFilter("Microsoft", LogLevel.Warning)
+                                        .AddFilter("System", LogLevel.Warning)
+                                        .AddConsole());
 builder.Services.AddControllers();
 builder.Services.AddCustomRateLimiter();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -23,13 +26,13 @@ builder.Services.AddControllers();
 
 builder.Services.AddTransient<IEmailService, EmailService>();
 
-builder.Services.AddGeneralService<AccountModel>("accounts");
 builder.Services.AddGeneralService<EmploymentModel>("employment");
 builder.Services.AddGeneralService<LocationModel>("locations");
 builder.Services.AddGeneralService<TrainerModel>("personal_trainers");
 builder.Services.AddGeneralService<TimelineModel>("timeline");
 builder.Services.AddGeneralService<EmployeeModel>("employees");
 
+builder.Services.AddSingleton<IService<AccountModel>>(service => new AccountService<AccountModel>("accounts"));
 builder.Services.AddSingleton<IService<MembershipModel>, MembershipService>();
 builder.Services.AddSingleton<IBodyService<BodyModel>>(service => new BodyService<BodyModel>("services"));
 builder.Services.AddSingleton<IService<ContactModel>, ContactService>();
