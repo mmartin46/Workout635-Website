@@ -8,6 +8,7 @@ const CreateAccountLayout = () => {
         email: '',
         confirmEmail: ''
     });
+    const [successMessage, setSuccessMessage] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -32,8 +33,11 @@ const CreateAccountLayout = () => {
         if (!response.ok) {
             let error = await response.message;
             console.log('Problem submitting', error);
-        } 
+        } else {
+            setSuccessMessage('Account created!');
+        }
     }
+
 
     return (
         <div>
@@ -66,7 +70,7 @@ const CreateAccountLayout = () => {
                         <div className="contact-btn">
                             <button type="submit">Submit</button>
                         </div>
-
+                        {successMessage && <h6 style={{ opacity: '0.8' }}>{successMessage}</h6>}
                     </div>
                 </div>
             </form>

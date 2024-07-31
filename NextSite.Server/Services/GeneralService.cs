@@ -7,6 +7,11 @@ namespace NextSite.Server.Services
     {
         protected readonly IMongoCollection<T> _collection;
 
+        /// <summary>
+        /// A general MongoDB service which allows you to utilize CRUD
+        /// operations
+        /// </summary>
+        /// <param name="collectionName">The collection name</param>
         public GeneralService(string collectionName)
         {
             var mongoClient = new MongoClient(Constants.ConnectionString);

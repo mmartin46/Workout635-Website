@@ -7,6 +7,12 @@ namespace NextSite.Server.Services
     public class AccountService<T> : GeneralService<T> where T : AccountModel
     {
         public AccountService(string collection) : base(collection) {}
+
+        /// <summary>
+        ///     Determines if an account is valid by checking the properties of the Account object
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns>True if matching, false if not.</returns>
         public bool IsValidAccount(T account)
         {
             foreach (PropertyInfo property in GetProperties(account))
@@ -20,6 +26,11 @@ namespace NextSite.Server.Services
             return HasMatchingCredentials(account);
         }
 
+        /// <summary>
+        /// Checks if the confirm and regular inputs match
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns>True if matching, false if not.</returns>
         private bool HasMatchingCredentials(T account)
         {
             if (account == null)
@@ -59,6 +70,12 @@ namespace NextSite.Server.Services
         }
 
         // new - method from base will be called, not the one here
+        /// <summary>
+        /// Creates an account if the user doesn't exist and increments the id.
+        /// </summary>
+        /// <param name="contact"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception">If the valid isn't valid, it will throw an exception</exception>
         public override async Task CreateAsync(T contact)
         {
             if (!IsValidAccount(contact))
