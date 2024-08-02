@@ -19,6 +19,7 @@ import IntroductionLayout from './components/layouts/IntroductionLayout';
 import CreateAccountLayout from './components/layouts/CreateAccountLayout';
 import LoginLayout from './components/layouts/LoginLayout';
 import GeneralLayout from './components/layouts/GeneralLayout';
+import HighestHeader from './components/general/HighestHeader';
 
 const ScreenRoutes = () => {
     return (
@@ -41,6 +42,7 @@ const ScreenRoutes = () => {
 function App() {
     return (
         <BrowserRouter>
+            <HighestHeader/>
             <Header/>
             <ScreenRoutes />
             <Footer/>
