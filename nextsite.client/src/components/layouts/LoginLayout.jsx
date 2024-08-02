@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import './Loginlayout.scss';
 
 const LoginLayout = () => {
     const [credentials, setCredentials] = useState({
@@ -43,7 +43,7 @@ const LoginLayout = () => {
 
 
     return (
-        <div>
+        <div className="main-div">
             <form onSubmit={createSubmit}>
                 <div className="create">
                     <h2>Login</h2>
