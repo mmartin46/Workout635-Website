@@ -37,7 +37,7 @@ builder.Services.AddSingleton<IService<AccountModel>>(service => new AccountServ
 builder.Services.AddSingleton<IService<MembershipModel>, MembershipService>();
 builder.Services.AddSingleton<IBodyService<BodyModel>>(service => new BodyService<BodyModel>("services"));
 builder.Services.AddSingleton<IService<ContactModel>, ContactService>();
-
+builder.Services.AddSingleton<IJwtService, JwtService>();
 
 
 builder.Services.AddCors(options =>

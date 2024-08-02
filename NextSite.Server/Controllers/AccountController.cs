@@ -8,14 +8,16 @@ namespace NextSite.Server.Controllers
     {
         private readonly IService<AccountModel> _service;
         private readonly ILogger<AccountController> _logger;
+        private readonly IJwtService _jwtService;
         
-        public AccountController(IService<AccountModel> service, ILogger<AccountController> logger)
+        public AccountController(IService<AccountModel> service,
+                                IJwtService jwtService,
+                                ILogger<AccountController> logger)
         {
             _logger = logger;
             _service = service;
+            _jwtService = jwtService;
         }
-
-
 
 
         [HttpPost]
@@ -36,7 +38,16 @@ namespace NextSite.Server.Controllers
         public async Task<IActionResult> Login([FromBody] AccountModel account)
         {
             bool foundAccount = await SearchForAccount(account);
-            return foundAccount ? Ok() : BadRequest();
+            if (foundAccount)
+            {
+                var jwt = _jwtService.Generate(account.Id);
+                Response.Cookies.Append("jwt", jwt, new CookieOptions
+                {
+                    HttpOnly = true,
+                });
+            }
+            
+            return foundAccount ? Ok(new { message = "success" }) : BadRequest();
         }
 
         private async Task<bool> SearchForAccount(AccountModel account)
@@ -53,7 +64,12 @@ namespace NextSite.Server.Controllers
                              user.Password!.Equals(account.Password))
                         select user).ToList();
 
-            return (users.Any() && users.Count() == 1);
+            if (users.Any() && users.Count() == 1)
+            {
+                account.Id = users.First().Id;
+                return true;
+            }
+            return false;
         }
 
 
