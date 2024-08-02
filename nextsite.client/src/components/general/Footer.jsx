@@ -69,7 +69,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div id="social-media" className="f-horizontal-ul">
+            <div id="social-media" className="horizontal-ul">
                 <ul>
                     <li><a><img src="/facebook.png" /></a></li>
                     <li><a><img src="/twitter.png" /></a></li>

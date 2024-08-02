@@ -3,8 +3,8 @@ import PlainLink from '../buttons/PlainLink';
 
 const HighestHeader = () => {
     return (
-        <div className="horizontal-ul">
-            <ul className="nav-bar">
+        <div className="f-horizontal-ul">
+            <ul className="f-nav-bar">
                 <li>
                     <PlainLink
                         to="/login"

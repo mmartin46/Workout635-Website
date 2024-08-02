@@ -2,8 +2,8 @@ import './Header.scss';
 import PlainLink from '../buttons/PlainLink';
 const Header = () => {
     return (
-        <div className="f-horizontal-ul">
-            <ul className="f-nav-bar">
+        <div className="horizontal-ul">
+            <ul className="nav-bar">
                 <li>
                     <PlainLink
                     to="/memberships"

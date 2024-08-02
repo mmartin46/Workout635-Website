@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 $primaryColor: rgb(30,30,30);
 
-.f-nav-bar {
+.nav-bar {
     position: absolute;
     top: 50px;
     z-index: 99;
@@ -10,7 +10,7 @@ $primaryColor: rgb(30,30,30);
 
 
 
-.f-horizontal-ul {
+.horizontal-ul {
 
     ul {
         display: flex;
@@ -19,7 +19,7 @@ $primaryColor: rgb(30,30,30);
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: $primaryColor;
+        background-color: rgba(0,0,0,1);
     }
 
     * {
