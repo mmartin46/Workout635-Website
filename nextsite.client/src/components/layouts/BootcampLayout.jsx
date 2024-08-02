@@ -15,7 +15,6 @@ const BootCampLayout = () => {
                 dataType: 'json',
                 success: function (res) {
                     setbootCamps(res);
-                    console.log(bootCamps);
                 }
             });
         };

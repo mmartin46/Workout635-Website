@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LoginLayout = () => {
     const [credentials, setCredentials] = useState({
@@ -6,6 +7,7 @@ const LoginLayout = () => {
         password: ''
     });
     const usernameRef = useRef();
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -31,6 +33,8 @@ const LoginLayout = () => {
             let error = await response.json();
             console.log('Problem submitting', error);
             usernameRef.current.focus();
+        } else {
+            return navigate('/loginSuccess');
         }
     }
 

@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using NextSite.Server.Common;
 using NextSite.Server.Models;
 using System.Reflection;
 
@@ -15,14 +16,10 @@ namespace NextSite.Server.Services
         /// <returns>True if matching, false if not.</returns>
         public bool IsValidAccount(T account)
         {
-            foreach (PropertyInfo property in GetProperties(account))
+            if (Simplified.HasEmptyOrNullProperties<AccountModel>(account))
             {
-                if (property.GetValue(account) == null || property.GetValue(account)!.ToString()!.Length <= 1)
-                {
-                    return false;
-                }
+                return false;
             }
-
             return HasMatchingCredentials(account);
         }
 
@@ -60,13 +57,6 @@ namespace NextSite.Server.Services
             {
                 return await _collection.Find(x => x.Username!.Equals(username)).ToListAsync();
             }
-        }
-
-
-
-        public PropertyInfo[] GetProperties(T account)
-        {
-            return account.GetType().GetProperties(System.Reflection.BindingFlags.Public | BindingFlags.Instance);
         }
 
         // new - method from base will be called, not the one here

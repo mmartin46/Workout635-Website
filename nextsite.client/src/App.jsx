@@ -18,6 +18,7 @@ import ContactLayout from './components/layouts/ContactLayout';
 import IntroductionLayout from './components/layouts/IntroductionLayout'; 
 import CreateAccountLayout from './components/layouts/CreateAccountLayout';
 import LoginLayout from './components/layouts/LoginLayout';
+import GeneralLayout from './components/layouts/GeneralLayout';
 
 const ScreenRoutes = () => {
     return (
@@ -30,7 +31,8 @@ const ScreenRoutes = () => {
             <Route path="/contact" element={<ContactLayout />} />
             <Route path="/intro" element={<IntroductionLayout />} />
             <Route path='/create' element={<CreateAccountLayout />} />
-            <Route path='/login' element={<LoginLayout/> }/>
+            <Route path='/login' element={<LoginLayout />} />
+            <Route path='/loginSuccess' element={<GeneralLayout title="Login Successful" />} />
         </Routes>
     );
 }
