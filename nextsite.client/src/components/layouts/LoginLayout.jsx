@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const LoginLayout = () => {
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''
     });
+    const [failedMessage, setFailedMessage] = useState();
+
     const usernameRef = useRef();
     const navigate = useNavigate();
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -30,9 +34,8 @@ const LoginLayout = () => {
         });
 
         if (!response.ok) {
-            let error = await response.json();
-            console.log('Problem submitting', error);
             usernameRef.current.focus();
+            setFailedMessage('Invalid Account. Please try again.');
         } else {
             return navigate('/loginSuccess');
         }
@@ -57,6 +60,7 @@ const LoginLayout = () => {
                         <div className="contact-btn">
                             <button type="submit">Submit</button>
                         </div>
+                        {failedMessage && <h6 style={{ opacity: '0.8' }}>{failedMessage}</h6>}
                     </div>
                 </div>
             </form>
