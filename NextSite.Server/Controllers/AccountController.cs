@@ -37,7 +37,22 @@ namespace NextSite.Server.Controllers
         [Route("/Login")]
         public async Task<IActionResult> Login([FromBody] AccountModel account)
         {
-            bool foundAccount = await SearchForAccount(account);
+            if (account == null)
+            {
+                return BadRequest(new { message = "Invalid Credentials" });
+            }
+
+            (bool, AccountModel?) result = await SearchForAccount(account);
+
+            if (!BCrypt.Net.BCrypt.Verify(account.Password, result.Item2!.Password))
+            {
+                return BadRequest(new
+                {
+                    message = "Invalid Credentials"
+                });
+            }
+
+            bool foundAccount = result.Item1;
             if (foundAccount)
             {
                 var jwt = _jwtService.Generate(account.Id);
@@ -45,31 +60,37 @@ namespace NextSite.Server.Controllers
                 {
                     HttpOnly = true,
                 });
+                return Ok(new
+                {
+                    message = "success",
+                    jwt
+                });
             }
-            
-            return foundAccount ? Ok(new { message = "success" }) : BadRequest();
+            return BadRequest();
         }
 
-        private async Task<bool> SearchForAccount(AccountModel account)
+        private async Task<(bool, AccountModel)> SearchForAccount(AccountModel account)
         {
             List<AccountModel> allUsers = await _service.GetAsync();
             if (allUsers == null)
             {
-                return false;
+                return (false, new AccountModel());
             }
+
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(account.Password);
 
             IEnumerable<AccountModel> users = (
                 from user in allUsers
                        where (user.Username!.Equals(account.Username) &&
-                             user.Password!.Equals(account.Password))
+                             BCrypt.Net.BCrypt.Verify(account.Password, user.Password))
                         select user).ToList();
 
             if (users.Any() && users.Count() == 1)
             {
                 account.Id = users.First().Id;
-                return true;
+                return (true, users.First());
             }
-            return false;
+            return (false, new AccountModel());
         }
 
 

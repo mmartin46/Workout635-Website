@@ -1,10 +1,12 @@
-﻿using MongoDB.Driver;
+﻿using Microsoft.AspNetCore.Authorization;
+using MongoDB.Driver;
 using NextSite.Server.Common;
 using NextSite.Server.Models;
 using System.Reflection;
 
 namespace NextSite.Server.Services
 {
+    [Authorize]
     public class AccountService<T> : GeneralService<T> where T : AccountModel
     {
         public AccountService(string collection) : base(collection) {}
@@ -78,6 +80,7 @@ namespace NextSite.Server.Services
             {
                 var allUsers = await GetAsync();
                 contact.Id = allUsers.Count();
+                contact.Password = BCrypt.Net.BCrypt.HashPassword(contact.Password);
                 await _collection.InsertOneAsync(contact);
             }
         }
