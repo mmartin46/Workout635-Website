@@ -7,10 +7,22 @@ namespace NextSite.Server.Services
     public class JwtService : IJwtService
     {
         private string secureKey = "this is a very secure key";
+        private const int SizeOfByte = 8;
+
+        private SymmetricSecurityKey ExtendLengthIfNecessary(SymmetricSecurityKey key, int minLengthInBytes)
+        {
+            if (key != null && key.KeySize < (minLengthInBytes * SizeOfByte))
+            {
+                var newKey = new byte[minLengthInBytes]; // adds zeroes
+                key.Key.CopyTo(newKey, 0);
+                return new SymmetricSecurityKey(newKey);
+            }
+            return key;
+        }
 
         public string Generate(int id)
         {
-            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secureKey));
+            var symmetricSecurityKey = ExtendLengthIfNecessary(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secureKey)), 256);
             var credentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256Signature);
             var header = new JwtHeader(credentials);
 

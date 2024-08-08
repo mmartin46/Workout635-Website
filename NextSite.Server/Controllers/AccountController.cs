@@ -44,7 +44,7 @@ namespace NextSite.Server.Controllers
 
             (bool, AccountModel?) result = await SearchForAccount(account);
 
-            if (!BCrypt.Net.BCrypt.Verify(account.Password, result.Item2!.Password))
+            if (!result.Item1)
             {
                 return BadRequest(new
                 {
@@ -76,8 +76,6 @@ namespace NextSite.Server.Controllers
             {
                 return (false, new AccountModel());
             }
-
-            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(account.Password);
 
             IEnumerable<AccountModel> users = (
                 from user in allUsers
