@@ -2,14 +2,16 @@
 using MongoDB.Driver;
 using NextSite.Server.Common;
 using NextSite.Server.Models;
+using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
+using System.Text;
 
 namespace NextSite.Server.Services
 {
     [Authorize]
     public class AccountService<T> : GeneralService<T> where T : AccountModel
     {
-        public AccountService(string collection) : base(collection) {}
+        public AccountService(string collection) : base(collection) { }
 
         /// <summary>
         ///     Determines if an account is valid by checking the properties of the Account object
@@ -84,6 +86,7 @@ namespace NextSite.Server.Services
                 await _collection.InsertOneAsync(contact);
             }
         }
+
 
     }
 }

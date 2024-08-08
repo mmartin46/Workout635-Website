@@ -27,6 +27,7 @@ const LoginLayout = () => {
 
         const response = await fetch("https://localhost:44314/Login", {
             method: 'POST',
+            credentials: 'include',           
             headers: {
                 'Content-Type': 'application/json'
             },

@@ -73,7 +73,8 @@ app.UseCustomRateLimiter();
 app.UseCors(builder => builder
     .AllowAnyHeader()
     .AllowAnyMethod()
-    .AllowAnyOrigin()
+    .SetIsOriginAllowed(origin => true)
+    .AllowCredentials()
 );
 
 

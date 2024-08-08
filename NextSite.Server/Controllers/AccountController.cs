@@ -90,7 +90,39 @@ namespace NextSite.Server.Controllers
             }
             return (false, new AccountModel());
         }
+        /// <summary>
+        ///   Finds user by Id
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("UserInfo")]
+        public IActionResult UserInfo()
+        {
+            try
+            {
+                var jwt = Request.Cookies["jwt"];
+                var token = _jwtService.Verify(jwt);
 
+                int userId = int.Parse(token.Issuer);
+
+                var user = _service.GetAsync(userId);
+                return Ok(user);
+            }
+            catch (Exception _)
+            {
+                return Unauthorized();
+            }
+        }
+
+        [HttpPost("Logout")]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("jwt");
+
+            return Ok(new
+            {
+                message = "Logout Successful"
+            });
+        }
 
 
     }
