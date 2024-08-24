@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NextSite.Server.Models;
 using NextSite.Server.Services;
 
@@ -21,6 +22,7 @@ namespace NextSite.Server.Controllers
 
 
         [HttpPost]
+        [AllowAnonymous]
         [Route("/AddAccount")]
         public async Task<IActionResult> AddAccount([FromBody] AccountModel account)
         {
@@ -113,6 +115,7 @@ namespace NextSite.Server.Controllers
             }
         }
 
+        [Authorize]
         [HttpPost("Logout")]
         public IActionResult Logout()
         {

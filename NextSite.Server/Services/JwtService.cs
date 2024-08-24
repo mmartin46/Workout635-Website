@@ -8,8 +8,12 @@ namespace NextSite.Server.Services
 {
     public class JwtService : IJwtService
     {
-        private string secureKey = "this is a very secure key";
         private const int SizeOfByte = 8;
+        private readonly IConfiguration _configuration;
+        public JwtService(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         private SymmetricSecurityKey ExtendLengthIfNecessary(SymmetricSecurityKey key, int minLengthInBytes)
         {
@@ -24,19 +28,27 @@ namespace NextSite.Server.Services
 
         public string Generate(AccountModel account)
         {
-            var symmetricSecurityKey = ExtendLengthIfNecessary(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secureKey)), 256);
+            var symmetricSecurityKey = ExtendLengthIfNecessary(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Constants.Key)), 256);
             //symmetricSecurityKey.KeyId = id.ToString();
             var credentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256Signature);
             var header = new JwtHeader(credentials);
+            var claims = new List<Claim>();
 
-            var claims = new List<Claim>
+            try
             {
-                new Claim("user_id", account.Id.ToString()),
-                new Claim(ClaimTypes.NameIdentifier, account.Username!),
-                new Claim(ClaimTypes.Email, account.Email!)
-            };
+                claims = new List<Claim>
+                {
+                    new Claim("user_id", account.Id.ToString()),
+                    new Claim(ClaimTypes.NameIdentifier, account.Username!),
+                };
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+                msg += "";
+            }
 
-            var payload = new JwtPayload(account.Id.ToString(), null, claims, null, DateTime.Today.AddDays(1)); // 1 Day
+            var payload = new JwtPayload(_configuration["Jwt:Issuer"], _configuration["Jwt:Audience"], claims, null, DateTime.Today.AddDays(1)); // 1 Day
             var securityToken = new JwtSecurityToken(header, payload);
 
             // Serializes the JWT Token to a string and returns it
@@ -47,7 +59,7 @@ namespace NextSite.Server.Services
         {
             var tokenHandler = new JwtSecurityTokenHandler();
 
-            var key = Encoding.ASCII.GetBytes(secureKey);
+            var key = Encoding.ASCII.GetBytes(Constants.Key);
             tokenHandler.ValidateToken(jwt, new TokenValidationParameters
             {
                 
