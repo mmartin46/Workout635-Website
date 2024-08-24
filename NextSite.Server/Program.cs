@@ -6,6 +6,8 @@ using Microsoft.Extensions.Logging;
 using NextSite.Server.Repositories;
 using NextSite.Server.Middleware;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,7 +25,28 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddLogging(builder => builder.AddConsole());
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+.AddJsonOptions(options =>
+{
+    // This will use the property names as defined in the C# model
+    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+});
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true
+        };
+    });
+
 
 builder.Services.AddTransient<IEmailService, EmailService>();
 
@@ -65,6 +88,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Invokes authentication schemes configured in AddAuthentication
+app.UseAuthentication();
+// Checks user's identity
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,10 +1,11 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿using NextSite.Server.Models;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace NextSite.Server.Services
 {
     public interface IJwtService
     {
-        string Generate(int id);
+        string Generate(AccountModel account);
         JwtSecurityToken Verify(string jwt);
     }
 }

@@ -55,7 +55,7 @@ namespace NextSite.Server.Controllers
             bool foundAccount = result.Item1;
             if (foundAccount)
             {
-                var jwt = _jwtService.Generate(account.Id);
+                var jwt = _jwtService.Generate(account);
                 Response.Cookies.Append("jwt", jwt, new CookieOptions
                 {
                     HttpOnly = true,

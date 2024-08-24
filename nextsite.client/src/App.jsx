@@ -21,6 +21,23 @@ import LoginLayout from './components/layouts/LoginLayout';
 import GeneralLayout from './components/layouts/GeneralLayout';
 import HighestHeader from './components/general/HighestHeader';
 
+const LoginSuccessLayout = () => {
+    useEffect(() => {
+        (
+            async () => {
+                await fetch('https://localhost:44314/UserInfo', {
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include'
+                });
+            }
+        )();
+    })
+
+    return (
+        <GeneralLayout title="Login Successful" />
+    );
+}
+
 const ScreenRoutes = () => {
     return (
         <Routes>
@@ -33,7 +50,7 @@ const ScreenRoutes = () => {
             <Route path="/intro" element={<IntroductionLayout />} />
             <Route path='/create' element={<CreateAccountLayout />} />
             <Route path='/login' element={<LoginLayout />} />
-            <Route path='/loginSuccess' element={<GeneralLayout title="Login Successful" />} />
+            <Route path='/loginSuccess' element={<LoginSuccessLayout />} />
         </Routes>
     );
 }
