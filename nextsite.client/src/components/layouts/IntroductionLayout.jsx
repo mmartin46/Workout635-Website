@@ -14,12 +14,16 @@ const IntroductionLayout = () => {
     useEffect(() => {
         const getLocations = () => {
             $.ajax({
-                url: "https://localhost:44314/Locations",
+                url: `${import.meta.env.VITE_API_URL}/Locations`,
                 type: 'GET',
                 crossDomain: true,
                 dataType: 'json',
                 success: function (res) {
                     setLocations(res);
+                    console.log('Locations-> ', res);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching locations:', error);
                 }
             })
         };
@@ -30,15 +34,19 @@ const IntroductionLayout = () => {
 
     useEffect(() => {
         $.ajax({
-            url: "https://localhost:44314/Timeline",
+            url: `${import.meta.env.VITE_API_URL}/Timeline`,
             type: "GET",
             crossDomain: true,
             dataType: 'json',
             success: function (res) {
                 setTimeline(res);
+                console.log('Timeline-> ', res);
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching timeline:', error);
             }
         });
-    }, [timeline]);
+    }, []);
 
 
     return (
@@ -67,7 +75,7 @@ const IntroductionLayout = () => {
                         <div style={{ textAlign: 'center'}}>
                             <h3>Our Timeline</h3>
                             {timeline && timeline.map((event) => (
-                                <h6 key={event.id}><b>{event.year}</b> - {event.topic}</h6>
+                                <h6 key={event.Id || event.id || event._id}><b>{event.Year || event.year}</b> - {event.Topic || event.topic}</h6>
                             ))}
                             <div className="row">
                                 <div className="col serv-div">

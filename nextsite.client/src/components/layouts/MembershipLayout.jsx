@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import Topic from '../general/Topic';
 import './MemberCard.scss';
 import { useNavigate } from "react-router-dom";
-import LinkButton from '../buttons/LinkButton';
 
 
 const MembershipLayout = () => {
@@ -13,18 +12,22 @@ const MembershipLayout = () => {
     useEffect(() => {
         const getMemberTypes = () => {
             $.ajax({
-                url: "https://localhost:44314/Memberships",
+                url: `${import.meta.env.VITE_API_URL}/Memberships`,
                 type: 'GET',
                 crossDomain: true,
                 dataType: 'json',
                 success: function (res) {
                     setMemberships(res);
+                    console.log('Membership Types-> ', res);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching membership types:', error);
                 }
             });
         };
 
         getMemberTypes();
-    }, [memberships]);
+    }, []);
 
     const navigateToContact = () => {
         setTimeout(() => {
@@ -45,23 +48,28 @@ const MembershipLayout = () => {
                 </div>
                 <br/>
                 {memberships &&
-                    memberships.map((membership) => (
-                        <div className="col member-card" key={membership.id}>
-                            <h3>{membership.type}</h3>
-                            <div>
-                                <h5><b>${membership.price.toFixed(2)}</b> / per month</h5>
+                    memberships.map((membership) => {
+                        const price = membership.Price || membership.price;
+                        const joinerFee = membership.JoinerFee || membership.joinerFee;
+                        const allowGuest = membership.AllowGuest !== undefined ? membership.AllowGuest : membership.allowGuest;
+                        
+                        return (
+                            <div className="col member-card" key={membership.Id || membership.id || membership._id}>
+                                <h3>{membership.Type || membership.type}</h3>
                                 <div>
-                                    <h5>Plan Includes:</h5>
-                                    <h6>Joiners Fee: ${membership.joinerFee.toFixed(2)}</h6>
-                                    <h6>Allow Guest: {membership.allowGuest ? "Yes" : "No"}</h6>
-                                </div>
-                                <div onClick={navigateToContact} className="click-more">
-
-                                    <h4>Contact Us</h4>
+                                    <h5><b>${price ? price.toFixed(2) : '0.00'}</b> / per month</h5>
+                                    <div>
+                                        <h5>Plan Includes:</h5>
+                                        <h6>Joiners Fee: ${joinerFee ? joinerFee.toFixed(2) : '0.00'}</h6>
+                                        <h6>Allow Guest: {allowGuest ? "Yes" : "No"}</h6>
+                                    </div>
+                                    <div onClick={navigateToContact} className="click-more">
+                                        <h4>Contact Us</h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
             </div>
         </div>
     )

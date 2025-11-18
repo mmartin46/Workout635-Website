@@ -9,19 +9,22 @@ const YogaClassLayout = () => {
     useEffect(() => {
         const getData = () => {
             $.ajax({
-                url: "https://localhost:44314/Yoga",
+                url: `${import.meta.env.VITE_API_URL}/Yoga`,
                 type: 'GET',
                 crossDomain: true,
                 dataType: 'json',
                 success: function (res) {
                     setYogaClasses(res);
-                    console.log(yogaClasses);
+                    console.log('Yoga Classes-> ', res);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching yoga classes:', error);
                 }
             });
         };
 
         getData();
-    }, [yogaClasses]);
+    }, []);
 
     return (
         <div>
@@ -32,7 +35,7 @@ const YogaClassLayout = () => {
 
             <div className="main-padding fadeUp">
                 <div className="heading-part row">
-                    <img src="/public/yoga_PNG75.png" />
+                    <img src="/yoga_PNG75.png" />
                     <div className="topic col">
                         <h1>What Do Our Yoga Classes Provide?</h1>
                         <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
@@ -40,13 +43,13 @@ const YogaClassLayout = () => {
                 </div>
                 <div className="row">
                     {yogaClasses && yogaClasses.map((yoga) => (
-                        <div className="col serv-div text-center" key={yoga.id}>
-                            <img src={yoga.image} />
+                        <div className="col serv-div text-center" key={yoga.Id || yoga.id || yoga._id}>
+                            <img src={yoga.Image || yoga.image} alt={yoga.Name || yoga.name} />
                             <div>
-                                <h2>{yoga.name}</h2>
-                                <h5>{yoga.description}</h5>
-                                <h5>Duration: {yoga.duration}</h5>
-                                <h5>Intensity: {yoga.intensity}</h5>
+                                <h2>{yoga.Name || yoga.name}</h2>
+                                <h5>{yoga.Description || yoga.description}</h5>
+                                <h5>Duration: {yoga.Duration || yoga.duration}</h5>
+                                <h5>Intensity: {yoga.Intensity || yoga.intensity}</h5>
                             </div>
                         </div>
                     ))}

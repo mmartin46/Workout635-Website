@@ -28,9 +28,9 @@ const MainLayout = () => {
     ];
 
     const highlights = [
-        new Highlight("url('/public/metal_0.png')", "Personal Training", "Starting at $90.00", "/training"),
-        new Highlight("url('/public/yoga.jpg')", "Yoga Classes", "Starting at $30.00", "/yoga"),
-        new Highlight("url('/public/smith.jpg')", "Bootcamps", "Starting at $40.00", "/bootcamp")
+        new Highlight("url('/metal_0.png')", "Personal Training", "Starting at $90.00", "/training"),
+        new Highlight("url('/yoga.jpg')", "Yoga Classes", "Starting at $30.00", "/yoga"),
+        new Highlight("url('/smith.jpg')", "Bootcamps", "Starting at $40.00", "/bootcamp")
     ];
 
 
@@ -47,7 +47,7 @@ const MainLayout = () => {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <img className="topic-img" src="/public/handshake.png" />
+                            <img className="topic-img" src="/handshake.png" />
                         </div>
                         <div className="col">
                             <ul>

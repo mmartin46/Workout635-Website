@@ -23,7 +23,7 @@ const ContactLayout = () => {
     const ourSubmit = async (e) => {
         e.preventDefault();
         
-        const response = await fetch("https://localhost:44314/AddContact", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/AddContact`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

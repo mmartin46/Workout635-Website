@@ -1,0 +1,18 @@
+namespace NextSite.Server
+{
+    public static class Constants
+    {
+        // MongoDB Configuration
+        public static string ConnectionString { get; set; } = "YOUR_MONGODB_CONNECTION_STRING";
+        public static string DatabaseName { get; set; } = "YOUR_DATABASE_NAME";
+
+        // JWT Configuration
+        public static string Key { get; set; } = "YOUR_JWT_SECRET_KEY";
+
+        // Email Configuration
+        public static string SENDING_EMAIL { get; set; } = "YOUR_EMAIL_ADDRESS";
+        public static string SENDING_PASSWORD { get; set; } = "YOUR_EMAIL_APP_PASSWORD";
+        public static string MY_EMAIL { get; set; } = "YOUR_EMAIL_ADDRESS";
+    }
+}
+

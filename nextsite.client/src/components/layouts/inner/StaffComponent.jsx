@@ -7,17 +7,21 @@ const StaffComponent = ({ className, controller }) => {
     useEffect(() => {
         const fetchEmployees = () => {
             $.ajax({
-                url: `https://localhost:44314/${controller}`,
+                url: `${import.meta.env.VITE_API_URL}/${controller}`,
                 type: 'GET',
                 crossDomain: true,
                 dataType: 'json',
                 success: function (res) {
                     setEmployees(res);
+                    console.log('Employees-> ', res);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching employees:', error);
                 }
             });
         };
         fetchEmployees();
-    }, [employees]);
+    }, [controller]);
 
     return (
         <div className={className}>
@@ -31,14 +35,14 @@ const StaffComponent = ({ className, controller }) => {
             <div className="row">
 
                 {employees && employees.map((employee) => (
-                    <div className="col serv-div" key={employee.id}>
-                        <img src={employee.headshot} />
+                    <div className="col serv-div" key={employee.Id || employee.id || employee._id}>
+                        <img src={employee.Headshot || employee.headshot} alt={`${employee.FirstName || employee.firstName} ${employee.LastName || employee.lastName}`} />
                         <div>
-                            <h4>{employee.firstName} {employee.lastName}</h4>
-                            <h5>{employee.position}</h5>
+                            <h4>{employee.FirstName || employee.firstName} {employee.LastName || employee.lastName}</h4>
+                            <h5>{employee.Position || employee.position}</h5>
 
-                            <h6>{employee.phoneNumber}</h6>
-                            <h6>{employee.email}</h6>
+                            <h6>{employee.PhoneNumber || employee.phoneNumber}</h6>
+                            <h6>{employee.Email || employee.email}</h6>
                         </div>
                     </div>
                 ))}

@@ -9,18 +9,22 @@ const EmployComponent = () => {
     useEffect(() => {
         const fetchOpportunities = () => {
             $.ajax({
-                url: "https://localhost:44314/Opportunities",
+                url: `${import.meta.env.VITE_API_URL}/Opportunities`,
                 type: 'GET',
                 crossDomain: true,
                 dataType: 'json',
                 success: function (res) {
                     setOpportunities(res);
+                    console.log('Opportunities-> ', res);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching opportunities:', error);
                 }
             });
         };
 
         fetchOpportunities();
-    }, [opportunities]);
+    }, []);
 
 
 
@@ -42,13 +46,13 @@ const EmployComponent = () => {
             <div className="center-div">
                 <div className="row spacing-50">
                     {opportunities && opportunities.map((opportunity) => (
-                        <div key={opportunity.id} className="col-sm-5 member-card">
+                        <div key={opportunity.Id || opportunity.id || opportunity._id} className="col-sm-5 member-card">
                             <div>
-                                <h3>{opportunity.position}</h3>
-                                <h6>Hourly Rate: {opportunity.salary}</h6>
-                                <h6>YOE: {opportunity.yearsOfExperience}</h6>
-                                <h6>Education: {opportunity.requirements}</h6>
-                                <h6>Plus: {opportunity.pluses}</h6>
+                                <h3>{opportunity.Position || opportunity.position}</h3>
+                                <h6>Hourly Rate: {opportunity.Salary || opportunity.salary}</h6>
+                                <h6>YOE: {opportunity.YearsOfExperience || opportunity.yearsOfExperience}</h6>
+                                <h6>Education: {opportunity.Requirements || opportunity.requirements}</h6>
+                                <h6>Plus: {opportunity.Pluses || opportunity.pluses}</h6>
                             </div>
                             <div onClick={navigateToContact} className="click-more">
 

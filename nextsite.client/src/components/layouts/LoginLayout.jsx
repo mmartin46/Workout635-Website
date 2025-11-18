@@ -25,7 +25,7 @@ const LoginLayout = () => {
     const createSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("https://localhost:44314/Login", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/Login`, {
             method: 'POST',
             credentials: 'include',           
             headers: {

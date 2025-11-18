@@ -14,20 +14,23 @@ const PersonalTrainingLayout = () => {
         const getTrainers = () => {
 
             $.ajax({
-                url: "https://localhost:44314/Trainers",
+                url: `${import.meta.env.VITE_API_URL}/Trainers`,
                 type: 'GET',
                 crossDomain: true,
                 dataType: 'json',
 
                 success: function (res) {
                     setTrainers(res);
-                    console.log('Trainers-> ', trainers);
+                    console.log('Trainers-> ', res);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching trainers:', error);
                 }
             });
         };
 
         getTrainers();
-    }, [trainers]);
+    }, []);
 
 
     return (
@@ -47,13 +50,13 @@ const PersonalTrainingLayout = () => {
                     </div>
                     <div className="row">
                         {trainers && trainers.map((trainer) => (
-                            <div className="col serv-div" key={trainer.id}>
-                                <img src={trainer.headshot} />
+                            <div className="col serv-div" key={trainer.Id || trainer.id || trainer._id}>
+                                <img src={trainer.Headshot || trainer.headshot} alt={`${trainer.FirstName || trainer.firstName} ${trainer.LastName || trainer.lastName}`} />
                                 <div>
-                                    <h2>{trainer.firstName} {trainer.lastName}</h2>
+                                    <h2>{trainer.FirstName || trainer.firstName} {trainer.LastName || trainer.lastName}</h2>
                                     <h5>Personal Trainer</h5>
-                                    <h5>{trainer.phoneNumber}</h5>
-                                    <h5>{trainer.email}</h5>
+                                    <h5>{trainer.PhoneNumber || trainer.phoneNumber}</h5>
+                                    <h5>{trainer.Email || trainer.email}</h5>
                                 </div>
                             </div>
                         ))}

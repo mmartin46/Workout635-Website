@@ -24,7 +24,7 @@ const CreateAccountLayout = () => {
     const createSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("https://localhost:44314/AddAccount", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/AddAccount`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

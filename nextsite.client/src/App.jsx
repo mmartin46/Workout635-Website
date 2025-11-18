@@ -25,7 +25,7 @@ const LoginSuccessLayout = () => {
     useEffect(() => {
         (
             async () => {
-                await fetch('https://localhost:44314/UserInfo', {
+                await fetch(`${import.meta.env.VITE_API_URL}/UserInfo`, {
                     headers: { 'Content-Type': 'application/json' },
                     credentials: 'include'
                 });
